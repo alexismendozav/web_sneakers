@@ -1920,7 +1920,7 @@ $productos = $servicio -> GetProductos();
 				</h4>
 
 				<span class="s-text11 t-center">
-					Se pueden realizar dentro de los primeros 30 dias.
+					Se pueden realizar dentro de los primeros 30 días.
 				</span>
 			</div>
 
