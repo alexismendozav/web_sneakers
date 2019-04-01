@@ -1877,7 +1877,7 @@ $productos = $servicio -> GetProductos();
 			</div>
 
 			<!-- Block4 -->
-			<div class="block4 wrap-pic-w">
+			<!--<div class="block4 wrap-pic-w">
 				<img src="images/boostsfeed.png" alt="IMG-INSTAGRAM">
 
 				<a href="https://www.instagram.com/p/BvkN72kp3xO/" class="block4-overlay sizefull ab-t-l trans-0-4">
@@ -1896,7 +1896,7 @@ $productos = $servicio -> GetProductos();
 						</span>
 					</div>
 				</a>
-			</div>
+			</div>-->
 		</div>
 	</section>
 
