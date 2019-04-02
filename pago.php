@@ -1,5 +1,6 @@
 <?php 
 include 'agregarCarrito.php';
+include 'verificarSesion.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -56,9 +57,13 @@ include 'agregarCarrito.php';
 
 				<div class="topbar-child2">
 					<span class="topbar-email">
-						snicker@gmail.com
-					</span>
-
+              <?php 
+								if($inicio=="si")
+									echo $usuario;
+								else
+									echo 'snickers@gmail.com';
+							?>
+          </span>
 					<div class="topbar-language rs1-select2">
 						<select class="selection-1" name="time">
 							<option>MXN</option>
@@ -100,9 +105,18 @@ include 'agregarCarrito.php';
 
 				<!-- Header Icon -->
 				<div class="header-icons">
-					<a href="#" class="header-wrapicon1 dis-block">
-						<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
-					</a>
+                    <img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+                    <span class="linedivide1"></span>
+                    <!-- Inicio sesion -->
+                        <?php if($inicio=="si") {?>
+                            <a href="cerrarSesion.php" class="header-wrapicon1 dis-block">	 
+														Cerrar Sesión                             
+                            </a>
+                        <?php } else if($inicio=="no") {?>
+                            <a href="login.php" class="header-wrapicon1 dis-block">
+                                Inicie Sesión                             
+                            </a>
+                        <?php }?>
 
 					<span class="linedivide1"></span>
 
@@ -176,10 +190,18 @@ include 'agregarCarrito.php';
 			<div class="btn-show-menu">
 				<!-- Header Icon mobile -->
 				<div class="header-icons-mobile">
-					<a href="#" class="header-wrapicon1 dis-block">
-						<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
-					</a>
-
+                        <img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+                        <span class="linedivide1"></span>
+                    <!-- Inicio sesion -->
+                        <?php if($inicio=="si") {?>
+                            <a href="cerrarSesion.php" class="header-wrapicon1 dis-block">
+                                 Cerrar Sesión                             
+                            </a>
+                        <?php } else if($inicio=="no")  {?>
+                            <a href="login.php" class="header-wrapicon1 dis-block">
+                                Inicie Sesión                             
+                            </a>
+                        <?php }?>
 					<span class="linedivide2"></span>
 
 					<div class="header-wrapicon2">

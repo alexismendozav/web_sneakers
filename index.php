@@ -1,5 +1,6 @@
 <?php 
 include 'agregarCarrito.php';
+include 'verificarSesion.php';
 $servicio = new SoapClient('http://interfacesavanzadasP.somee.com/Service1.svc?singleWsdl');
 /*$stringc="gerson@gmail.com";
 $stringn="12345";
@@ -54,7 +55,7 @@ $productos = $servicio -> GetProductos();
 	<!-- header fixed -->
 	<div class="wrap_header fixed-header2 trans-0-4">
 		<!-- Logo -->
-		<a href="index.php" class="logo2">
+		<a href="index.php" class="logo">
 			<img src="images/icons/logo.png" alt="IMG-LOGO">
 		</a>
 
@@ -83,12 +84,21 @@ $productos = $servicio -> GetProductos();
 		
 		<!-- Header Icon -->
 		<div class="header-icons">
-			<a href="#" class="header-wrapicon1 dis-block">
-				<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
-			</a>
-
+			<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">	
 			<span class="linedivide1"></span>
-
+				<!-- AQUI SE MUESTRA EL CERRAR SESIÓN EN EL MENU QUE SALE AL BAJAR POR LA PAGINA -->
+				<?php 
+				if($inicio=="si") {?>
+                    <a href="cerrarSesion.php" class="header-wrapicon1 dis-block">	 
+						Cerrar Sesión                             
+                    </a>
+				<?php } 
+				else if($inicio=="no") {?>
+                    <a href="login.php" class="header-wrapicon1 dis-block">
+                    	Inicie Sesión                             
+                    </a>
+                <?php }?>
+			<span class="linedivide1"></span>
 			<div class="header-wrapicon2">
 				<img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
 				<span class="header-icons-noti"><?php echo(empty($_SESSION['CARRITO']))?0:count($_SESSION['CARRITO']); ?></span>
@@ -137,9 +147,15 @@ $productos = $servicio -> GetProductos();
 
 						<div class="header-cart-wrapbtn">
 							<!-- Button -->
-							<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+							<?php if($inicio=="si"){?>
+							<a href="pago" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 								Comprar
 							</a>
+							<?php } else if($inicio=="no"){?>
+							<a href="login" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+								Comprar
+							</a>
+							<?php }?>
 						</div>
 					</div>
 				</div>
@@ -179,7 +195,13 @@ $productos = $servicio -> GetProductos();
 
 				<div class="topbar-child2">
 					<span class="topbar-email">
-						sneackers@gmail.com
+						<!-- AQUI SE MUESTRA EL CORREO EN EL MENU PRINCIPAL -->
+						<?php
+							if($inicio=="si")
+							  echo $usuario;
+							else
+							  echo 'snickers@gmail.com';
+						?>
 					</span>
 
 					<div class="topbar-language rs1-select2">
@@ -246,9 +268,15 @@ $productos = $servicio -> GetProductos();
 
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									<?php if($inicio=="si"){?>
+									<a href="pago" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										Comprar
 									</a>
+									<?php } else if($inicio=="no"){?>
+									<a href="login" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+										Comprar
+									</a>
+									<?php }?>
 								</div>
 							</div>
 						</div>
@@ -353,9 +381,15 @@ $productos = $servicio -> GetProductos();
 
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									<?php if($inicio=="si"){?>
+									<a href="pago" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										Comprar
 									</a>
+									<?php } else if($inicio=="no"){?>
+									<a href="login" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+										Comprar
+									</a>
+									<?php }?>
 								</div>
 							</div>
 						</div>
@@ -383,7 +417,12 @@ $productos = $servicio -> GetProductos();
 					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
 						<div class="topbar-child2-mobile">
 							<span class="topbar-email">
-								sneakers@gmail.com
+							<?php
+								if($inicio=="si")
+									echo $usuario;
+								else
+									echo 'snickers@gmail.com';
+							?>
 							</span>
 
 							<div class="topbar-language rs1-select2">
@@ -427,6 +466,12 @@ $productos = $servicio -> GetProductos();
 					<li class="item-menu-mobile">
 						<a href="contacto.php">Contacto</a>
 					</li>
+
+					<?php if($inicio=="si"){?>
+					<li class="item-menu-mobile">
+						<a href="cerrarSesion.php">Cerrar Sesión</a>
+					</li>
+					<?php }?>
 				</ul>
 			</nav>
 		</div>
@@ -1908,7 +1953,7 @@ $productos = $servicio -> GetProductos();
 					Escoje el mejor estilo.
 				</h4>
 
-				<a href="Snickers.zip"" class="s-text11 t-center">
+				<a href="Snickers.zip" class="s-text11 t-center">
 					
 					Descarga la aplicación de escritorio
 				</a>

@@ -1,5 +1,6 @@
 <?php 
 include 'agregarCarrito.php';
+include 'verificarSesion.php';
 $total=0;
 ?>
 <!DOCTYPE html>
@@ -56,7 +57,12 @@ $total=0;
 
 				<div class="topbar-child2">
 					<span class="topbar-email">
-						sneakers@gmail.com
+						<?php 
+							if($inicio=="si")
+								echo $usuario;
+							else
+								echo 'snickers@gmail.com';
+						?>
 					</span>
 
 					<div class="topbar-language rs1-select2">
@@ -101,11 +107,19 @@ $total=0;
 
 				<!-- Header Icon -->
 				<div class="header-icons">
-					<a href="#" class="header-wrapicon1 dis-block">
 						<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
-					</a>
-
-					<span class="linedivide1"></span>
+                    	<span class="linedivide1"></span>
+                   		 <!-- Inicio sesion -->
+                        <?php if($inicio=="si") {?>
+                            <a href="cerrarSesion.php" class="header-wrapicon1 dis-block">	 
+								Cerrar Sesión                             
+                            </a>
+                        <?php } else if($inicio=="no") {?>
+                            <a href="login.php" class="header-wrapicon1 dis-block">
+                                Inicie Sesión                             
+                            </a>
+                        <?php }?>
+						<span class="linedivide1"></span>
 
 					<div class="header-wrapicon2">
 						<img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
@@ -157,9 +171,15 @@ $total=0;
 
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									<?php if($inicio=="si"){?>
+									<a href="pago" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										Comprar
 									</a>
+									<?php } else if($inicio=="no"){?>
+									<a href="login" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+										Comprar
+									</a>
+									<?php }?>
 								</div>
 							</div>
 						</div>
@@ -234,9 +254,15 @@ $total=0;
 
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									<?php if($inicio=="si"){?>
+									<a href="pago" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										Comprar
 									</a>
+									<?php } else if($inicio=="no"){?>
+									<a href="login" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+										Comprar
+									</a>
+									<?php }?>
 								</div>
 							</div>
 						</div>
@@ -264,7 +290,12 @@ $total=0;
 					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
 						<div class="topbar-child2-mobile">
 							<span class="topbar-email">
-								snickers@gmail.com
+							<?php 
+								if($inicio=="si")
+									echo $usuario;
+								else
+									echo 'snickers@gmail.com';
+							?>
 							</span>
 
 							<div class="topbar-language rs1-select2">
@@ -287,6 +318,9 @@ $total=0;
 						</div>
 					</li>
 					<li class="item-menu-mobile">
+						<a href="index.php">Inicio</a>
+					</li>
+					<li class="item-menu-mobile">
 						<a href="productos.php">Tienda</a>
 					</li>
 
@@ -301,6 +335,12 @@ $total=0;
 					<li class="item-menu-mobile">
 						<a href="contacto.php">Contacto</a>
 					</li>
+
+					<?php if($inicio=="si"){?>
+					<li class="item-menu-mobile">
+						<a href="cerrarSesion.php">Cerrar Sesión</a>
+					</li>
+					<?php }?>
 				</ul>
 			</nav>
 		</div>
@@ -460,9 +500,16 @@ $total=0;
 
 				<div class="size15 trans-0-4">
 					<!-- Button -->
-					<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-						Proceder a pagar
-					</button>
+					<?php if($inicio=="si"){?>
+							<a href="pago" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
+								Proceder a pagar
+							</a>
+							<?php } else if($inicio=="no"){?>
+							<a href="login" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
+								Proceder a pagar
+							</a>
+					<?php }?>
+					
 				</div>
 			</div>
 		</div>
