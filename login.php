@@ -1,11 +1,10 @@
 <?php 
-	include 'agregarCarrito.php';
-	include 'verificarSesion.php';
+include 'agregarCarrito.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Contactanos</title>
+	<title>Sesión</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -33,6 +32,11 @@
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+    <link rel="stylesheet" type="text/css" href="css/login.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="js/login.js"></script>
 <!--===============================================================================================-->
 </head>
 <body class="animsition">
@@ -51,17 +55,12 @@
 				</div>
 
 				<span class="topbar-child1">
-					SI COMPRAS DOS O MAS PARES TU ENVÍO SERA GRATIS!
+					SI COMPRAS DOS O MAS PARES DE TU ENVÍO SERA GRATIS!
 				</span>
 
 				<div class="topbar-child2">
 					<span class="topbar-email">
-					<?php 
-						if($inicio=="si")
-							echo $usuario;
-						else
-							echo 'snickers@gmail.com';
-					?>
+						snicker@gmail.com
 					</span>
 
 					<div class="topbar-language rs1-select2">
@@ -105,27 +104,20 @@
 
 				<!-- Header Icon -->
 				<div class="header-icons">
-					<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
-                    <span class="linedivide1"></span>
-                   	<!-- Inicio sesion -->
-                    <?php if($inicio=="si") {?>
-                        <a href="cerrarSesion.php" class="header-wrapicon1 dis-block">	 
-							Cerrar Sesión                             
-                        </a>
-                    <?php } else if($inicio=="no") {?>
-                        <a href="login.php" class="header-wrapicon1 dis-block">
-                             Inicie Sesión                             
-                        </a>
-                    <?php }?>
+					<a href="#" class="header-wrapicon1 dis-block">
+						<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+					</a>
+
 					<span class="linedivide1"></span>
 
 					<div class="header-wrapicon2">
 						<img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
 						<span class="header-icons-noti"><?php echo(empty($_SESSION['CARRITO']))?0:count($_SESSION['CARRITO']); ?></span>
 
-						<!-- Header cart noti -->
+						<!-- Header cart -->
 						<div class="header-cart header-dropdown">
-						<ul class="header-cart-wrapitem">
+							<ul class="header-cart-wrapitem">
+							<ul class="header-cart-wrapitem">
 						<?php  
 						$total=0;
 						if(!empty($_SESSION['CARRITO'])) {
@@ -133,7 +125,7 @@
 						?>
 						<li class="header-cart-item">
 							<div class="header-cart-item-img">	                                              
-								<img src="images/sneakers/<?php echo $producto['modelo'];?>.jpg" alt="IMG">						
+								<img src="images/item-cart-01.jpg" alt="IMG">						
 							</div>
 
 							<div class="header-cart-item-txt">
@@ -145,7 +137,7 @@
 								</span>
 								<form action="agregarCarrito.php" method="post">
 								<input  type="hidden" name="modelo" id="modelo" value="<?php echo $producto['modelo'];?>"> 
-								<input class="input-delete" type="submit" name="delete" value="X"  />
+								<input class="input-delete" type="submit" name="deleteN" value="X"  />
 								</form>
 							</div>
 						</li>
@@ -166,15 +158,9 @@
 
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<?php if($inicio=="si"){?>
-									<a href="pago" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										Comprar
+									<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+										Pagar
 									</a>
-									<?php } else if($inicio=="no"){?>
-									<a href="login" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										Comprar
-									</a>
-									<?php }?>
 								</div>
 							</div>
 						</div>
@@ -229,8 +215,7 @@
 								<input class="input-delete" type="submit" name="delete" value="X"  />
 								</form>
 							</div>
-						</li>
-						
+						</li>						
 						<?php $total = $total + ($producto['precio']); } }?>
 					</ul>
 
@@ -247,15 +232,9 @@
 
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<?php if($inicio=="si"){?>
-									<a href="pago" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										Comprar
+									<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+										Pagar
 									</a>
-									<?php } else if($inicio=="no"){?>
-									<a href="login" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										Comprar
-									</a>
-									<?php }?>
 								</div>
 							</div>
 						</div>
@@ -276,19 +255,14 @@
 				<ul class="main-menu">
 					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
 						<span class="topbar-child1">
-							SI COMPRAS DOS O MAS PARES TU ENVÍO SERA GRATIS!
+							SI COMPRAS DOS O MAS PARES TU ENVÍO ES GRATIS!
 						</span>
 					</li>
 
 					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
 						<div class="topbar-child2-mobile">
 							<span class="topbar-email">
-							<?php 
-								if($inicio=="si")
-									echo $usuario;
-								else
-									echo 'snickers@gmail.com';
-							?>
+								snickers@gmial.com
 							</span>
 
 							<div class="topbar-language rs1-select2">
@@ -312,7 +286,8 @@
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="index.php">Inicio</a>						
+						<a href="index.php">Inicio</a>
+						
 					</li>
 
 					<li class="item-menu-mobile">
@@ -323,75 +298,123 @@
 						<a href="carrito.php">Carrito</a>
 					</li>
 
+				
 					<li class="item-menu-mobile">
-						<a href="nosotros.php">Nosotros</a>
+						<a href="nosotros.php">About</a>
 					</li>
 
 					<li class="item-menu-mobile">
-						<a href="contacto.php">Contacto</a>
+						<a href="contacto.php">Contact</a>
 					</li>
-					<?php if($inicio=="si"){?>
-					<li class="item-menu-mobile">
-						<a href="cerrarSesion.php">Cerras Sesión</a>
-					</li>
-					<?php }?>
 				</ul>
 			</nav>
 		</div>
 	</header>
-
-	<!-- Title Page -->
-	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/heading-pages-06.jpg);">
-		<h2 class="l-text2 t-center">
-			Contactanos
-		</h2>
-	</section>
-
-	<!-- content page -->
-	<section class="bgwhite p-t-66 p-b-60">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-6 p-b-30">
-					<div class="p-r-20 p-r-0-lg">
-						<div class="contact-map size21" id="google_map" data-map-x="40.614439" data-map-y="-73.926781" data-pin="images/icons/icon-position-map.png" data-scrollwhell="0" data-draggable="1"></div>
+	<!-- CONTENT PAGE -->
+    <div class="container">
+    	<div class="row">
+			<div class="col-md-6 col-md-offset-3">
+				<div class="panel panel-login">
+					<div class="panel-heading">
+						<div class="row">
+							<div class="col-xs-6">
+								<a href="#" class="active" id="login-form-link">Iniciar sesión</a>
+							</div>
+							<div class="col-xs-6">
+								<a href="#" id="register-form-link">Regístrate ahora</a>
+							</div>
+						</div>
+						<hr>
 					</div>
-				</div>
-
-				<div class="col-md-6 p-b-30">
-					<form class="leave-comment">
-						<h4 class="m-text26 p-b-36 p-t-15">
-							Mandanos tu mensaje
-						</h4>
-
-						<div class="bo4 of-hidden size15 m-b-20">
-							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="name" placeholder="Nombre Completo">
+					<div class="panel-body">
+						<div class="row">
+							<div class="col-lg-12">
+							<!--FORM LOGIN-->
+								<form id="login-form" action="acces.php" method="post" role="form" style="display: block;">
+									<div class="form-group">
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Usuario" value="">
+									</div>
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Contraseña">
+									</div>
+									<div class="form-group text-center">
+										<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
+										<label for="remember"> Recordarme</label>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" value="Iniciar sesión">
+											</div>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-lg-12">
+												<div class="text-center">
+													<a href="http://phpoll.com/recover" tabindex="5" class="forgot-password">¿Has olvidado tu contraseña?</a>
+												</div>
+											</div>
+										</div>
+									</div>
+                                </form>
+                                <!--FORM REGISTER-->
+								<form id="register-form" action="" method="post" role="form" style="display: none;">
+									<div class="form-group">
+										<input type="text" name="nombre" id="nombre" tabindex="1" class="form-control" placeholder="Nombre" value="">
+									</div>
+									<div class="form-group">
+										<input type="text" name="apellidos" id="apellidos" tabindex="1" class="form-control" placeholder="Apellidos" value="">
+									</div>
+									<div class="form-group">
+										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Correo electronico" value="">
+									</div>
+									<div class="form-group">
+										<input type="text" name="telefono" id="telefono" tabindex="1" class="form-control" placeholder="Telefono" value="">
+									</div>
+									<div class="form-group">
+										<input type="text" name="cp" id="cp" tabindex="1" class="form-control" placeholder="Codigo Postal" value="">
+									</div>
+									<div class="form-group">
+										<input type="text" name="estado" id="estado" tabindex="1" class="form-control" placeholder="Estado" value="">
+									</div>
+									<div class="form-group">
+										<input type="text" name="ciudad" id="ciudad" tabindex="1" class="form-control" placeholder="Ciudad" value="">
+									</div>
+									<div class="form-group">
+										<input type="text" name="colonia" id="colonia" tabindex="1" class="form-control" placeholder="Colonia" value="">
+									</div>
+									<div class="form-group">
+										<input type="text" name="calle" id="calle" tabindex="1" class="form-control" placeholder="Calle" value="">
+									</div>
+									<div class="form-group">
+										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Contraseña">
+									</div>
+									<div class="form-group">
+										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirmar contraseña">
+									</div>
+									<div class="form-group">
+										<div class="row">
+											<div class="col-sm-6 col-sm-offset-3">
+												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" value="Crear cuenta">
+											</div>
+										</div>
+									</div>
+								</form>
+							</div>
 						</div>
-
-						<div class="bo4 of-hidden size15 m-b-20">
-							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="phone-number" placeholder="Numero Telefonico">
-						</div>
-
-						<div class="bo4 of-hidden size15 m-b-20">
-							<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="email" placeholder="Dirección de correo">
-						</div>
-
-						<textarea class="dis-block s-text7 size20 bo4 p-l-22 p-r-22 p-t-13 m-b-20" name="message" placeholder="Mensaje"></textarea>
-
-						<div class="w-size25">
-							<!-- Button -->
-							<button class="flex-c-m size2 bg1 bo-rad-23 hov1 m-text3 trans-0-4">
-								Enviar
-							</button>
-						</div>
-					</form>
+					</div>
 				</div>
 			</div>
 		</div>
-	</section>
+	</div>
 
 
+
+
+    <!-- END CONTENT -->
 	<!-- Footer -->
-	<<footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
+	<footer class="bg6 p-t-45 p-b-43 p-l-45 p-r-45">
 			<div class="flex-w p-b-90">
 				<div class="w-size6 p-t-30 p-l-15 p-r-15 respon3">
 					<h4 class="s-text12 p-b-30">
@@ -541,6 +564,9 @@
 				</div>
 			</div>
 		</footer>
+
+
+
 	<!-- Back to top -->
 	<div class="btn-back-to-top bg0-hov" id="myBtn">
 		<span class="symbol-btn-back-to-top">
@@ -575,10 +601,8 @@
 		});
 	</script>
 <!--===============================================================================================-->
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAKFWBqlKAGCeS1rMVoaNlwyayu0e0YRes"></script>
-	<script src="js/map-custom.js"></script>
-<!--===============================================================================================-->
 	<script src="js/main.js"></script>
+
 
 </body>
 </html>
