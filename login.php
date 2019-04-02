@@ -344,7 +344,7 @@ include 'agregarCarrito.php';
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Iniciar sesión">
+												<input type="submit" name="login-submit" id="login-submit" tabindex="4" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" value="Iniciar sesión">
 											</div>
 										</div>
 									</div>
@@ -361,10 +361,31 @@ include 'agregarCarrito.php';
                                 <!--FORM REGISTER-->
 								<form id="register-form" action="" method="post" role="form" style="display: none;">
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Usuario" value="">
+										<input type="text" name="nombre" id="nombre" tabindex="1" class="form-control" placeholder="Nombre" value="">
+									</div>
+									<div class="form-group">
+										<input type="text" name="apellidos" id="apellidos" tabindex="1" class="form-control" placeholder="Apellidos" value="">
 									</div>
 									<div class="form-group">
 										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Correo electronico" value="">
+									</div>
+									<div class="form-group">
+										<input type="text" name="telefono" id="telefono" tabindex="1" class="form-control" placeholder="Telefono" value="">
+									</div>
+									<div class="form-group">
+										<input type="text" name="cp" id="cp" tabindex="1" class="form-control" placeholder="Codigo Postal" value="">
+									</div>
+									<div class="form-group">
+										<input type="text" name="estado" id="estado" tabindex="1" class="form-control" placeholder="Estado" value="">
+									</div>
+									<div class="form-group">
+										<input type="text" name="ciudad" id="ciudad" tabindex="1" class="form-control" placeholder="Ciudad" value="">
+									</div>
+									<div class="form-group">
+										<input type="text" name="colonia" id="colonia" tabindex="1" class="form-control" placeholder="Colonia" value="">
+									</div>
+									<div class="form-group">
+										<input type="text" name="calle" id="calle" tabindex="1" class="form-control" placeholder="Calle" value="">
 									</div>
 									<div class="form-group">
 										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Contraseña">
@@ -375,7 +396,7 @@ include 'agregarCarrito.php';
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Crear cuenta">
+												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" value="Crear cuenta">
 											</div>
 										</div>
 									</div>
