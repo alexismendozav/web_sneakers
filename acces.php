@@ -1,6 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Acces</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+</head>
+<body>
 <?php
     include 'agregarCarrito.php';
     $servicio = new SoapClient('http://interfacesavanzadasp.somee.com/Service1.svc?singleWsdl');
+    error_reporting(0);
     $registro = 0;
     $id_compra = 0;
     $id_cliente =0;
@@ -23,7 +35,44 @@
         $parametros = array('id_cliente'=>$id_cliente,'nombre'=>$nombre,'apellidos'=>$apellidos, 'correo' => $correo,'telefono'=> $telefono,'codigo_postal'=>$codigo_postal,'estado'=>$estado,'ciudad'=>$ciudad,'colonia'=>$colonia,'calle'=>$calle,'contrasena'=>$contrasena);
         $respuesta = $servicio -> AgregarCliente($parametros);
         if($respuesta==1){
-            $registro = 1;          
+            $registro = 1;
+            ?>
+            <script>
+            swal({
+                title: "Registro Exitoso",
+                text: "Proceda a Iniciar Sesión",
+                icon: "success",
+                buttons: true,
+                dangerMode: true,
+                })
+                .then((willDelete) => {
+                if (willDelete) {
+                    window.location.href = 'login.php';
+                } else {
+                    window.location.href = 'index.php';
+                }
+                });
+            </script>
+            <?php  
+        }else{
+            ?>
+                <script>
+                swal({
+                    title: "Ocurrio un error al registrarse",
+                    text: "Vuelva a intentarlo",
+                    icon: "error",
+                    buttons: true,
+                    dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                    if (willDelete) {
+                        window.location.href = 'login.php';
+                    } else {
+                        window.location.href = 'index.php';
+                    }
+                    });
+                </script>
+                <?php 
         }
     }
     else if(isset($_POST['login-submit'])){    
@@ -36,11 +85,30 @@
             if($value==1){
                
                 $usuario = array ('USUARIO' => $correo,);
-                $_SESSION['USUARIO'][0]=$usuario;
+                $_SESSION['USUARIO'][0]=$usuario;  
                 header('Location: pago.php');  
             }     
             else
-             header("Location:login.php");
+             {
+                ?>
+                <script>
+                swal({
+                    title: "Usuario o contraseña incorrectos",
+                    text: "Vuelva a intentarlo",
+                    icon: "error",
+                    buttons: true,
+                    dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                    if (willDelete) {
+                        window.location.href = 'login.php';
+                    } else {
+                        window.location.href = 'index.php';
+                    }
+                    });
+                </script>
+                <?php 
+             }
         }
     }else if(isset($_POST['pagar'])){
         $id_compra = rand(1,10000);
@@ -86,3 +154,5 @@
     }
   
 ?>
+</body>
+</html>
