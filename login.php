@@ -359,7 +359,7 @@ include 'agregarCarrito.php';
 									</div>
                                 </form>
                                 <!--FORM REGISTER-->
-								<form id="register-form" action="" method="post" role="form" style="display: none;">
+								<form id="register-form" action="acces.php" method="post" role="form" style="display: none;">
 									<div class="form-group">
 										<input type="text" name="nombre" id="nombre" tabindex="1" class="form-control" placeholder="Nombre" value="">
 									</div>
@@ -599,7 +599,9 @@ include 'agregarCarrito.php';
 			minimumResultsForSearch: 20,
 			dropdownParent: $('#dropDownSelect2')
 		});
+		
 	</script>
+	
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
 

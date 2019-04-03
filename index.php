@@ -48,6 +48,7 @@ $productos = $servicio -> GetProductos();
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
 <!--===============================================================================================-->
 </head>
 <body class="animsition">

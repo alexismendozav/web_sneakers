@@ -41,6 +41,7 @@ include 'verificarSesion.php';
 
 <!--===============================================================================================-->
 </head>
+
 <body class="animsition">
 
 	<!-- Header -->
@@ -335,53 +336,16 @@ include 'verificarSesion.php';
 		</div>
 	</header>
     <!-- CONTENT PAGE -->
-
-    <div class="modal">
-    <div class="modal__container">
-      <div class="modal__featured">
-    
-        <div class="modal__circle"></div>
-        <img src="https://cloud.githubusercontent.com/assets/3484527/19622568/9c972d44-987a-11e6-9dcc-93d496ef408f.png" class="modal__product" />
-      </div>
-      <div class="modal__content">
-        <h2>DETALLES DE PAGO</h2>
-
-        <form action="acces.php" method="post">
-          <ul class="form-list" >
-            <li class="form-list__row">
-              <label>Nombre</label>
-              <input type="text" name="" required="" placeholder="Nombre"/>
-            </li>
-            <li class="form-list__row">
-              <label>Numero de tarjeta</label>
-              <div id="input--cc" class="creditcard-icon">
-                <input type="text" name="cc_number" required="" placeholder="---- ---- ---- ----"/>
-              </div>
-            </li>
-            <li class="form-list__row form-list__row--inline">
-              <div>
-                <label>Fecha de vencimiento</label>
-                <div class="form-list__input-inline">
-                  <input type="text" name="cc_month" placeholder="Mes"  pattern="\d*" minlength="2" maxlength="2" required="" />
-                  <input type="text" name="cc_year" placeholder="Año"  pattern="\d*" minlength="2" maxlength="2" required="" />
-                </div>
-              </div>
-              <div>
-                <label>
-                  CVC                
-                </label>
-                <input type="text" name="cc_cvc" placeholder="123" pattern="\d*" minlength="3" maxlength="4" required="" />
-              </div>
-            </li>
-
-            <li>
-              <button type="submit" id="pagar" name="pagar" class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">Pagar</button>
-            </li>
-            </ul>
-            </form>
-        </div> <!-- END: .modal__content -->
-        </div> <!-- END: .modal__container -->
-    </div> <!-- END: .modal -->                       
+    <?php 
+    echo "<script>
+    Swal.fire(
+        'Compra Realizada!',
+        'Seguir Comprando!',
+        'success'
+    )
+    </script>";
+    ?>
+                   
     <!-- EN CONTENT PAGE -->
 
 
