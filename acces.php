@@ -12,6 +12,7 @@
 <?php
     include 'agregarCarrito.php';
     $servicio = new SoapClient('http://interfacesavanzadasp.somee.com/Service1.svc?singleWsdl');
+    error_reporting(0);
     $registro = 0;
     $id_compra = 0;
     $id_cliente =0;
