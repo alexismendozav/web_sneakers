@@ -148,7 +148,7 @@ $productos = $servicio -> GetProductos();
 						<div class="header-cart-wrapbtn">
 							<!-- Button -->
 							<?php if($inicio=="si"){?>
-							<a href="pago" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+							<a href="pago.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 								Comprar
 							</a>
 							<?php } else if($inicio=="no"){?>
@@ -269,7 +269,7 @@ $productos = $servicio -> GetProductos();
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
 									<?php if($inicio=="si"){?>
-									<a href="pago" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									<a href="pago.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										Comprar
 									</a>
 									<?php } else if($inicio=="no"){?>
@@ -382,11 +382,11 @@ $productos = $servicio -> GetProductos();
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
 									<?php if($inicio=="si"){?>
-									<a href="pago" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									<a href="pago.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										Comprar
 									</a>
 									<?php } else if($inicio=="no"){?>
-									<a href="login" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									<a href="login.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										Comprar
 									</a>
 									<?php }?>
@@ -2051,13 +2051,13 @@ $productos = $servicio -> GetProductos();
 					</li>
 
 					<li class="p-b-9">
-						<a href="about.html" class="s-text7">
+						<a href="nosotros.php" class="s-text7">
 							Nosotros
 						</a>
 					</li>
 
 					<li class="p-b-9">
-						<a href="contact.html" class="s-text7">
+						<a href="contacto.php" class="s-text7">
 							Contactanos
 						</a>
 					</li>
