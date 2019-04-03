@@ -133,7 +133,7 @@ foreach($productos as $lista => $producto){
 						?>
 						<li class="header-cart-item">
 							<div class="header-cart-item-img">	                                              
-								<img src="images/item-cart-01.jpg" alt="IMG">						
+								<img src="images/sneakers/<?php echo $producto['modelo'];?>.jpg" alt="IMG">						
 							</div>
 
 							<div class="header-cart-item-txt">
