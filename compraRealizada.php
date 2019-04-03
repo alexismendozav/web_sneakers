@@ -47,11 +47,11 @@ include 'verificarSesion.php';
 		<div class="container-menu-header">
 			<div class="topbar">
 				<div class="topbar-social">
-					<a href="#" class="topbar-social-item fa fa-facebook"></a>
-					<a href="#" class="topbar-social-item fa fa-instagram"></a>
-					<a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-					<a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
-					<a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+					<a href="https://www.facebook.com" class="topbar-social-item fa fa-facebook"></a>
+					<a href="https://www.instagram.com" class="topbar-social-item fa fa-instagram"></a>
+					<a href="https://www.pinterest.com" class="topbar-social-item fa fa-pinterest-p"></a>
+					<a href="https://www.snapchat.com" class="topbar-social-item fa fa-snapchat-ghost"></a>
+					<a href="https://www.youtube.com" class="topbar-social-item fa fa-youtube-play"></a>
 				</div>
 
 				<span class="topbar-child1">
@@ -139,7 +139,7 @@ include 'verificarSesion.php';
 						?>
 						<li class="header-cart-item">
 							<div class="header-cart-item-img">	                                              
-								<img src="images/item-cart-01.jpg" alt="IMG">						
+								<img src="images/sneakers/<?php echo $producto['modelo'];?>.jpg" alt="IMG">						
 							</div>
 
 							<div class="header-cart-item-txt">
@@ -222,7 +222,7 @@ include 'verificarSesion.php';
 						?>
 						<li class="header-cart-item">
 							<div class="header-cart-item-img">	                                              
-								<img src="images/item-cart-01.jpg" alt="IMG">						
+								<img src="images/sneakers/<?php echo $producto['modelo'];?>.jpg" alt="IMG">						
 							</div>
 
 							<div class="header-cart-item-txt">
@@ -299,11 +299,11 @@ include 'verificarSesion.php';
 
 					<li class="item-topbar-mobile p-l-10">
 						<div class="topbar-social-mobile">
-							<a href="#" class="topbar-social-item fa fa-facebook"></a>
-							<a href="#" class="topbar-social-item fa fa-instagram"></a>
-							<a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-							<a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
-							<a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+							<a href="https://www.facebook.com" class="topbar-social-item fa fa-facebook"></a>
+							<a href="https://www.instagram.com" class="topbar-social-item fa fa-instagram"></a>
+							<a href="https://www.pinterest.com" class="topbar-social-item fa fa-pinterest-p"></a>
+							<a href="https://www.snapchat.com" class="topbar-social-item fa fa-snapchat-ghost"></a>
+							<a href="https://www.youtube.com" class="topbar-social-item fa fa-youtube-play"></a>
 						</div>
 					</li>
 

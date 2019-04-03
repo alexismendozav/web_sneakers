@@ -373,31 +373,31 @@ $productos = $servicio -> GetProductos();
 
 						<ul class="p-b-54">
 							<li class="p-t-4">
-								<a href="#" class="s-text13 active1">
+								<a href="productos.php" class="s-text13 active1">
 									Todo
 								</a>
 							</li>
 
 							<li class="p-t-4">
-								<a href="#" class="s-text13">
+								<a href="productos.php" class="s-text13">
 									Mujeres
 								</a>
 							</li>
 
 							<li class="p-t-4">
-								<a href="#" class="s-text13">
+								<a href="productos.php" class="s-text13">
 									Hombres
 								</a>
 							</li>
 
 							<li class="p-t-4">
-								<a href="#" class="s-text13">
+								<a href="productos.php" class="s-text13">
 									Niñas
 								</a>
 							</li>
 
 							<li class="p-t-4">
-								<a href="#" class="s-text13">
+								<a href="productos.php" class="s-text13">
 									Niños
 								</a>
 							</li>
@@ -405,28 +405,28 @@ $productos = $servicio -> GetProductos();
 
 						<!--  -->
 						<h4 class="m-text14 p-b-32">
-							Filtros
+							
 						</h4>
 
 						<div class="filter-price p-t-22 p-b-50 bo3">
 							<div class="m-text15 p-b-17">
-								Precio
+								
 							</div>
 
 							<div class="wra-filter-bar">
-								<div id="filter-bar"></div>
+								<!--<div id="filter-bar"></div>-->
 							</div>
 
 							<div class="flex-sb-m flex-w p-t-16">
 								<div class="w-size11">
-									<!-- Button -->
+									<!-- Button 
 									<button class="flex-c-m size4 bg7 bo-rad-15 hov1 s-text14 trans-0-4">
 										Filtros
-									</button>
+									</button>-->
 								</div>
 
 								<div class="s-text3 p-t-10 p-b-10">
-									Rango: $<span id="value-lower">0</span> - $<span id="value-upper">5000</span>
+									<!--Rango: $<span id="value-lower">0</span> - $<span id="value-upper">5000</span>-->
 								</div>
 							</div>
 						</div>
@@ -475,11 +475,11 @@ $productos = $servicio -> GetProductos();
 						</div>
 -->
 						<div class="search-product pos-relative bo4 of-hidden">
-							<input class="s-text7 size6 p-l-23 p-r-50" type="text" name="search-product" placeholder="Buscar Productos...">
+							<!--<input class="s-text7 size6 p-l-23 p-r-50" type="text" name="search-product" placeholder="Buscar Productos...">
 
 							<button class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4">
 								<i class="fs-12 fa fa-search" aria-hidden="true"></i>
-							</button>
+							</button>-->
 						</div>
 					</div>
 				</div>

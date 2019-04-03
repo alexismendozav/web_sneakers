@@ -553,7 +553,7 @@ $productos = $servicio -> GetProductos();
 
 						<div class="block1-wrapbtn w-size2">
 							<!-- Button -->
-							<a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+							<a href="productos.php" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
 								Hombres
 							</a>
 						</div>
@@ -567,7 +567,7 @@ $productos = $servicio -> GetProductos();
 
 						<div class="block1-wrapbtn w-size2">
 							<!-- Button -->
-							<a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+							<a href="productos.php" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
 								Mujeres
 							</a>
 						</div>
@@ -581,7 +581,7 @@ $productos = $servicio -> GetProductos();
 
 						<div class="block1-wrapbtn w-size2">
 							<!-- Button -->
-							<a href="#" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+							<a href="productos.php" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
 								Niños
 							</a>
 						</div>

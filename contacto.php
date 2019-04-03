@@ -1,4 +1,4 @@
-9j9<?php 
+<?php 
 	include 'agregarCarrito.php';
 	include 'verificarSesion.php';
 ?>
@@ -303,11 +303,11 @@
 
 					<li class="item-topbar-mobile p-l-10">
 						<div class="topbar-social-mobile">
-							<a href="#" class="topbar-social-item fa fa-facebook"></a>
-							<a href="#" class="topbar-social-item fa fa-instagram"></a>
-							<a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-							<a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
-							<a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+							<a href="https://www.facebook.com" class="topbar-social-item fa fa-facebook"></a>
+							<a href="https://www.instagram.com" class="topbar-social-item fa fa-instagram"></a>
+							<a href="https://www.pinterest.com" class="topbar-social-item fa fa-pinterest-p"></a>
+							<a href="https://www.snapchat.com" class="topbar-social-item fa fa-snapchat-ghost"></a>
+							<a href="https://www.youtube.com" class="topbar-social-item fa fa-youtube-play"></a>
 						</div>
 					</li>
 
@@ -404,11 +404,11 @@
 						</p>
 	
 						<div class="flex-m p-t-30">
-							<a href="#" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
-							<a href="#" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
-							<a href="#" class="fs-18 color1 p-r-20 fa fa-pinterest-p"></a>
-							<a href="#" class="fs-18 color1 p-r-20 fa fa-snapchat-ghost"></a>
-							<a href="#" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
+							<a href="https://www.facebook.com" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
+							<a href="https://www.instagram.com" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
+							<a href="https://www.pinterest.com" class="fs-18 color1 p-r-20 fa fa-pinterest-p"></a>
+							<a href="https://www.snapchat.com" class="fs-18 color1 p-r-20 fa fa-snapchat-ghost"></a>
+							<a href="https://www.youtube.com" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
 						</div>
 					</div>
 				</div>

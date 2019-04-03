@@ -47,11 +47,11 @@ include 'agregarCarrito.php';
 		<div class="container-menu-header">
 			<div class="topbar">
 				<div class="topbar-social">
-					<a href="#" class="topbar-social-item fa fa-facebook"></a>
-					<a href="#" class="topbar-social-item fa fa-instagram"></a>
-					<a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-					<a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
-					<a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+					<a href="https://www.facebook.com" class="topbar-social-item fa fa-facebook"></a>
+					<a href="https://www.instagram.com" class="topbar-social-item fa fa-instagram"></a>
+					<a href="https://www.pinterest.com" class="topbar-social-item fa fa-pinterest-p"></a>
+					<a href="https://www.snapchat.com" class="topbar-social-item fa fa-snapchat-ghost"></a>
+					<a href="https://www.youtube.com" class="topbar-social-item fa fa-youtube-play"></a>
 				</div>
 
 				<span class="topbar-child1">
@@ -125,7 +125,7 @@ include 'agregarCarrito.php';
 						?>
 						<li class="header-cart-item">
 							<div class="header-cart-item-img">	                                              
-								<img src="images/item-cart-01.jpg" alt="IMG">						
+								<img src="images/sneakers/<?php echo $producto['modelo'];?>.jpg" alt="IMG">						
 							</div>
 
 							<div class="header-cart-item-txt">
@@ -200,7 +200,7 @@ include 'agregarCarrito.php';
 						?>
 						<li class="header-cart-item">
 							<div class="header-cart-item-img">	                                              
-								<img src="images/item-cart-01.jpg" alt="IMG">						
+								<img src="images/sneakers/<?php echo $producto['modelo'];?>.jpg" alt="IMG">						
 							</div>
 
 							<div class="header-cart-item-txt">
@@ -332,7 +332,7 @@ include 'agregarCarrito.php';
 							<!--FORM LOGIN-->
 								<form id="login-form" action="acces.php" method="post" role="form" style="display: block;">
 									<div class="form-group">
-										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Usuario" value="">
+										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="E-mail" value="">
 									</div>
 									<div class="form-group">
 										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Contraseña">
@@ -426,13 +426,13 @@ include 'agregarCarrito.php';
 						¿Alguna pregunta? Avísenos en la tienda, 5 Oriente #535, Tehuacan, Puebla  o llámenos al (+52) 2382114426
 						</p>
 	
-						<div class="flex-m p-t-30">
-							<a href="#" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
-							<a href="#" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
-							<a href="#" class="fs-18 color1 p-r-20 fa fa-pinterest-p"></a>
-							<a href="#" class="fs-18 color1 p-r-20 fa fa-snapchat-ghost"></a>
-							<a href="#" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
-						</div>
+					<div class="topbar-social">
+					<a href="https://www.facebook.com" class="topbar-social-item fa fa-facebook"></a>
+					<a href="https://www.instagram.com" class="topbar-social-item fa fa-instagram"></a>
+					<a href="https://www.pinterest.com" class="topbar-social-item fa fa-pinterest-p"></a>
+					<a href="https://www.snapchat.com" class="topbar-social-item fa fa-snapchat-ghost"></a>
+					<a href="https://www.youtube.com" class="topbar-social-item fa fa-youtube-play"></a>
+				</div>
 					</div>
 				</div>
 	
