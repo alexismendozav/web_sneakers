@@ -34,10 +34,7 @@ include 'verificarSesion.php';
 	<link rel="stylesheet" type="text/css" href="css/util.css">
     <link rel="stylesheet" type="text/css" href="css/main.css">
     <link rel="stylesheet" type="text/css" href="css/pago.css">
-		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
-		<script src="sweetalert2.all.min.js"></script>
-<!-- Optional: include a polyfill for ES6 Promises for IE11 and Android browser -->
-	<script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 <!--===============================================================================================-->
 </head>
@@ -336,15 +333,23 @@ include 'verificarSesion.php';
 		</div>
 	</header>
     <!-- CONTENT PAGE -->
-    <?php 
-    echo "<script>
-    Swal.fire(
-        'Compra Realizada!',
-        'Seguir Comprando!',
-        'success'
-    )
-    </script>";
-    ?>
+    
+                <script>
+                swal({
+                    title: "Gracias por su compra",
+                    text: "Siga Comprando",
+                    icon: "success",
+                    buttons: true,
+                    dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                    if (willDelete) {
+                        window.location.href = 'productos.php';
+                    } else {
+                        window.location.href = 'index.php';
+                    }
+                    });
+                </script>
                    
     <!-- EN CONTENT PAGE -->
 
