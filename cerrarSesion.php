@@ -2,6 +2,6 @@
     session_start();
     session_destroy();
     $_SESSION = array();
-    header('Location: index');
+    header('Location: index.php');
     die();
 ?>
