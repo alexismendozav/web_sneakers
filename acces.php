@@ -12,7 +12,7 @@
 <?php
     include 'agregarCarrito.php';
     $servicio = new SoapClient('http://interfacesavanzadasp.somee.com/Service1.svc?singleWsdl');
-    error_reporting(0);
+   
     $registro = 0;
     $id_compra = 0;
     $id_cliente =0;
@@ -80,13 +80,35 @@
         $password=$_POST['password'];     
         $parametros = array('correo'=>$correo,'contrasena'=>$password);
         $resultado = $servicio -> VerificarLogin($parametros);
-        
         foreach ($resultado as $obj => $value) {
-            if($value==1){
-               
-                $usuario = array ('USUARIO' => $correo,);
-                $_SESSION['USUARIO'][0]=$usuario;  
-                header('Location: pago.php');  
+            if($value==1){              
+                
+                ?>
+                <script>
+                swal({
+                    title: "BIENVENIDO",
+                    text: "PROCEDA A PAGAR SUS PRUDUCTOS",
+                    icon: "success",
+                    buttons: true,
+                    dangerMode: true,
+                    })
+                    .then((willDelete) => {
+                    if (willDelete) {
+                        <?php
+                            $usuario = array ('USUARIO' => $correo,);
+                            $_SESSION['USUARIO'][0]=$usuario; ?>
+                        window.location.href = 'pago.php';
+                    } else {
+                        <?php
+                            $usuario = array ('USUARIO' => $correo,);
+                            $_SESSION['USUARIO'][0]=$usuario; ?>
+                        window.location.href = 'index.php';
+                    }
+                    });
+                </script>
+                <?php 
+                
+                                 
             }     
             else
              {

@@ -152,7 +152,7 @@ $productos = $servicio -> GetProductos();
 								Comprar
 							</a>
 							<?php } else if($inicio=="no"){?>
-							<a href="login" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+							<a href="login.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 								Comprar
 							</a>
 							<?php }?>
@@ -273,7 +273,7 @@ $productos = $servicio -> GetProductos();
 										Comprar
 									</a>
 									<?php } else if($inicio=="no"){?>
-									<a href="login" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									<a href="login.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										Comprar
 									</a>
 									<?php }?>
