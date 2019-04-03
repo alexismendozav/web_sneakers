@@ -350,7 +350,7 @@ $productos = $servicio -> GetProductos();
 	</header>
 
 	<!-- Title Page -->
-	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(images/banner_productt.jpg);">
+	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(images/banner_cart.png);">
 		<h2 class="l-text2 t-center">
 			
 		</h2>
