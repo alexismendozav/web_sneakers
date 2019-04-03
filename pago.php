@@ -346,7 +346,7 @@ include 'verificarSesion.php';
       <div class="modal__content">
         <h2>DETALLES DE PAGO</h2>
 
-        <form action="acces.php" method="post">
+        <form action="prueba.php" method="post">
           <ul class="form-list" >
             <li class="form-list__row">
               <label>Nombre</label>
