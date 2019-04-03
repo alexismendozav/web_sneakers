@@ -1,4 +1,4 @@
-<?php 
+9j9<?php 
 	include 'agregarCarrito.php';
 	include 'verificarSesion.php';
 ?>
@@ -214,7 +214,7 @@
 						?>
 						<li class="header-cart-item">
 							<div class="header-cart-item-img">	                                              
-								<img src="images/item-cart-01.jpg" alt="IMG">						
+								<img src="images/sneakers/<?php echo $producto['modelo'];?>.jpg" alt="IMG">						
 							</div>
 
 							<div class="header-cart-item-txt">
@@ -341,7 +341,7 @@
 	</header>
 
 	<!-- Title Page -->
-	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/heading-pages-06.jpg);">
+	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/banner_cart.png);">
 		<h2 class="l-text2 t-center">
 			Contactanos
 		</h2>

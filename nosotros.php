@@ -303,11 +303,11 @@ include 'verificarSesion.php';
 
 					<li class="item-topbar-mobile p-l-10">
 						<div class="topbar-social-mobile">
-							<a href="#" class="topbar-social-item fa fa-facebook"></a>
-							<a href="#" class="topbar-social-item fa fa-instagram"></a>
-							<a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-							<a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
-							<a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+							<a href="https://www.facebook.com" class="topbar-social-item fa fa-facebook"></a>
+							<a href="https://www.instagram.com" class="topbar-social-item fa fa-instagram"></a>
+							<a href="https://www.pinterest.com" class="topbar-social-item fa fa-pinterest-p"></a>
+							<a href="https://www.snapchat.com" class="topbar-social-item fa fa-snapchat-ghost"></a>
+							<a href="https://www.youtube.com"  class="topbar-social-item fa fa-youtube-play"></a>
 						</div>
 					</li>
 
@@ -344,7 +344,7 @@ include 'verificarSesion.php';
 	</header>
 
 	<!-- Title Page -->
-	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/heading-pages-06.jpg);">
+	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/banner_us.jpg);">
 		<h2 class="l-text2 t-center">
 			NOSOTROS
 		</h2>
@@ -356,7 +356,7 @@ include 'verificarSesion.php';
 			<div class="row">
 				<div class="col-md-4 p-b-30">
 					<div class="hov-img-zoom">
-						<img src="images/banner-14.jpg" alt="IMG-ABOUT">
+						<img src="images/us.png" alt="IMG-ABOUT">
 					</div>
 				</div>
 
@@ -366,16 +366,16 @@ include 'verificarSesion.php';
 					</h3>
 
 					<p class="p-b-28">
-						Phasellus egestas nisi nisi, lobortis ultricies risus semper nec. Vestibulum pharetra ac ante ut pellentesque. Curabitur fringilla dolor quis lorem accumsan, vitae molestie urna dapibus. Pellentesque porta est ac neque bibendum viverra. Vivamus lobortis magna ut interdum laoreet. Donec gravida lorem elit, quis condimentum ex semper sit amet. Fusce eget ligula magna. Aliquam aliquam imperdiet sodales. Ut fringilla turpis in vehicula vehicula. Pellentesque congue ac orci ut gravida. Aliquam erat volutpat. Donec iaculis lectus a arcu facilisis, eu sodales lectus sagittis. Etiam pellentesque, magna vel dictum rutrum, neque justo eleifend elit, vel tincidunt erat arcu ut sem. Sed rutrum, turpis ut commodo efficitur, quam velit convallis ipsum, et maximus enim ligula ac ligula. Vivamus tristique vulputate ultricies. Sed vitae ultrices orci.
+						Sneakers comenzo como un proyecto de escuela en Febreo de 2019, al paso de unos años nos dimos cuenta que podiamos manejar de una forma segura el e-commerce a través de la venta en linea, no obstante, tambien contamos con una sucursal ubicada en 5 oriente 609, Tehuacán Puebla. 
 					</p>
 
 					<div class="bo13 p-l-29 m-l-9 p-b-10">
 						<p class="p-b-11">
-							Creativity is just connecting things. When you ask creative people how they did something, they feel a little guilty because they didn't really do it, they just saw something. It seemed obvious to them after a while.
+							Manejamos principalmente la Marca Nike por la variedad de modelos que ofrece, de igual forma puedes encontrar productos de la marca VANS y ADIDAS. 
 						</p>
 
 						<span class="s-text7">
-							- Steve Job’s
+							
 						</span>
 					</div>
 				</div>

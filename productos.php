@@ -221,7 +221,7 @@ $productos = $servicio -> GetProductos();
 							?>
 								<li class="header-cart-item">
 									<div class="header-cart-item-img">
-										<img src="images/item-cart-01.jpg" alt="IMG">
+										<img src="images/sneakers/<?php echo $producto['modelo'];?>.jpg" alt="IMG">
 									</div>
 
 									<div class="header-cart-item-txt">
@@ -350,7 +350,7 @@ $productos = $servicio -> GetProductos();
 	</header>
 
 	<!-- Title Page -->
-	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(images/banner_cart.png);">
+	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(images/banner_productt.jpg);">
 		<h2 class="l-text2 t-center">
 			
 		</h2>
@@ -430,7 +430,7 @@ $productos = $servicio -> GetProductos();
 								</div>
 							</div>
 						</div>
-
+<!--
 						<div class="filter-color p-t-22 p-b-50 bo3">
 							<div class="m-text15 p-b-12">
 								Color
@@ -473,7 +473,7 @@ $productos = $servicio -> GetProductos();
 								</li>
 							</ul>
 						</div>
-
+-->
 						<div class="search-product pos-relative bo4 of-hidden">
 							<input class="s-text7 size6 p-l-23 p-r-50" type="text" name="search-product" placeholder="Buscar Productos...">
 

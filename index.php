@@ -500,7 +500,7 @@ $productos = $servicio -> GetProductos();
 					</div>
 				</div>
 
-				<div class="item-slick1 item2-slick1" style="background-image: url(images/bannerP2.jpg);">
+				<div class="item-slick1 item2-slick1" style="background-image: url(images/banner_P9.jpg);">
 					<div class="wrap-content-slide1 sizefull flex-col-c-m p-l-15 p-r-15 p-t-150 p-b-170">
 						<h1 color="Black" class="caption1-slide1 xl-text2 t-center bo14 p-b-6 animated visible-false m-b-22" data-appear="rollIn">
 							NUEVOS MODELOS

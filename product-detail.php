@@ -282,11 +282,11 @@ foreach($productos as $lista => $producto){
 
 					<li class="item-topbar-mobile p-l-10">
 						<div class="topbar-social-mobile">
-							<a href="#" class="topbar-social-item fa fa-facebook"></a>
-							<a href="#" class="topbar-social-item fa fa-instagram"></a>
-							<a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-							<a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
-							<a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+							<a href="https://www.facebook.com" class="topbar-social-item fa fa-facebook"></a>
+							<a href="https://www.instagram.com" class="topbar-social-item fa fa-instagram"></a>
+							<a href="https://www.pinterest.com" class="topbar-social-item fa fa-pinterest-p"></a>
+							<a href="https://www.snapchat.com" class="topbar-social-item fa fa-snapchat-ghost"></a>
+							<a href="https://www.youtube.com" class="topbar-social-item fa fa-youtube-play"></a>
 						</div>
 					</li>
 
@@ -368,21 +368,21 @@ foreach($productos as $lista => $producto){
 					<div class="wrap-slick3-dots"></div>
 
 					<div class="slick3">
-						<div class="item-slick3" data-thumb="images/thumb-item-01.jpg">
+						<div class="item-slick3" data-thumb="images/sneakers/<?php echo $tenis->id_producto;?>.jpg">
 							<div class="wrap-pic-w">
-								<img src="images/product-detail-01.jpg" alt="IMG-PRODUCT">
+								<img src="images/sneakers/<?php echo $tenis->id_producto;?>.jpg" alt="IMG-PRODUCT">
 							</div>
 						</div>
 
-						<div class="item-slick3" data-thumb="images/thumb-item-02.jpg">
+						<div class="item-slick3" data-thumb="images/sneakers/<?php echo $tenis->id_producto;?>_2.png">
 							<div class="wrap-pic-w">
-								<img src="images/product-detail-02.jpg" alt="IMG-PRODUCT">
+								<img src="images/sneakers/<?php echo $tenis->id_producto;?>_2.png" alt="IMG-PRODUCT">
 							</div>
 						</div>
 
-						<div class="item-slick3" data-thumb="images/thumb-item-03.jpg">
+						<div class="item-slick3" data-thumb="images/sneakers/<?php echo $tenis->id_producto;?>_3.png">
 							<div class="wrap-pic-w">
-								<img src="images/product-detail-03.jpg" alt="IMG-PRODUCT">
+								<img src="images/sneakers/<?php echo $tenis->id_producto;?>_3.png" alt="IMG-PRODUCT">
 							</div>
 						</div>
 					</div>
@@ -444,7 +444,7 @@ foreach($productos as $lista => $producto){
 							</select>
 						</div>
 					</div>
-
+<!--
 					<div class="flex-m flex-w">
 						<div class="s-text15 w-size15 t-center">
 							Color
@@ -460,7 +460,7 @@ foreach($productos as $lista => $producto){
 							</select>
 						</div>
 					</div>
-
+-->
 					<div class="flex-r-m flex-w p-t-10">
 						<div class="w-size16 flex-m flex-w">
 							<div class="flex-w bo5 of-hidden m-r-22 m-t-10 m-b-10">
@@ -598,7 +598,7 @@ foreach($productos as $lista => $producto){
 						<!-- Block2 -->
 						<div class="block2">
 							<div class="block2-img wrap-pic-w of-hidden pos-relative ">
-								<img src="images/item-02.jpg" alt="IMG-PRODUCT">
+								<img src="images/sneakers/<?php echo $teniss[$i]->id_producto;?>.jpg" alt="IMG-PRODUCT">
 
 								<div class="block2-overlay trans-0-4">
 									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
