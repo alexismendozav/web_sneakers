@@ -1,5 +1,12 @@
 <?php 
 include 'agregarCarrito.php';
+include 'verificarSesion.php';
+if($inicio=="si")
+  {
+	?> <script type="text/javascript"> 
+	alert("Usted ya ha iniciado sesión.");
+	window.location.href = "index.php";</script> <?php 
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,7 +67,12 @@ include 'agregarCarrito.php';
 
 				<div class="topbar-child2">
 					<span class="topbar-email">
-						snicker@gmail.com
+					<?php
+							if($inicio=="si")
+							  echo $usuario;
+							else
+							  echo 'snickers@gmail.com';
+					?>
 					</span>
 
 					<div class="topbar-language rs1-select2">
@@ -262,7 +274,12 @@ include 'agregarCarrito.php';
 					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
 						<div class="topbar-child2-mobile">
 							<span class="topbar-email">
-								snickers@gmial.com
+							<?php
+							if($inicio=="si")
+							  echo $usuario;
+							else
+							  echo 'snickers@gmail.com';
+							?>
 							</span>
 
 							<div class="topbar-language rs1-select2">

@@ -29,11 +29,11 @@
         {
             $modeloProducto = array_column($_SESSION['CARRITO'],"modelo"); 
             if(in_array($modelo,$modeloProducto)){
-                echo '<script> alert("Este producto ya existe en tu carrito!");</script>';
-                header("Location:index.php");
+                ?> <script type="text/javascript"> 
+                alert("Este producto ya existe en su carrito");
+                window.location.href = "productos.php";</script> <?php 
             }
-            else
-            {
+            else{
                 $NumeroProductos=count($_SESSION['CARRITO']);
                 $producto = array (
                     'modelo' => $modelo,

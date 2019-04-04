@@ -213,7 +213,7 @@ $productos = $servicio -> GetProductos();
 					</div>
 
 					<!-- MENU CUANDO LA PAGINA ESTA NORMAL  -->
-					<a href="#" class="header-wrapicon1 dis-block m-l-30">
+					<a href="login.php" class="header-wrapicon1 dis-block m-l-30">
 						<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
 					</a>
 
@@ -326,7 +326,7 @@ $productos = $servicio -> GetProductos();
 			<div class="btn-show-menu">
 				<!-- Header Icon mobile -->
 				<div class="header-icons-mobile">
-					<a href="#" class="header-wrapicon1 dis-block">
+					<a href="login.php" class="header-wrapicon1 dis-block">
 						<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
 					</a>
 
@@ -382,9 +382,9 @@ $productos = $servicio -> GetProductos();
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
 									<?php if($inicio=="si"){?>
-									<a href="pago.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										Comprar
-									</a>
+										<a href="pago.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+											Comprar
+										</a>
 									<?php } else if($inicio=="no"){?>
 									<a href="login.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										Comprar
@@ -1776,7 +1776,7 @@ $productos = $servicio -> GetProductos();
 					<!-- Block3 -->
 					<div class="block3">
 						<a href="http://sneakers2.000webhostapp.com/" class="block3-img dis-block hov-img-zoom">
-							<img src="images/phpBB.png" alt="IMG-BLOG">
+							<img src="images/phpBB.PNG" alt="IMG-BLOG">
 						</a>
 
 						<div class="block3-txt p-t-14">
@@ -1801,7 +1801,7 @@ $productos = $servicio -> GetProductos();
 					<!-- Block3 -->
 					<div class="block3">
 						<a href="https://snickerswp.cloudaccess.host/" class="block3-img dis-block hov-img-zoom">
-							<img src="images/bannerPro.png" alt="IMG-BLOG">
+							<img src="images/bannerPro.PNG" alt="IMG-BLOG">
 						</a>
 
 						<div class="block3-txt p-t-14">

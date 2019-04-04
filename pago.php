@@ -1,6 +1,12 @@
 <?php 
 include 'agregarCarrito.php';
 include 'verificarSesion.php';
+	if(!isset($_SESSION['CARRITO'])){
+			?> <script type="text/javascript"> 
+                alert("Elija algún producto!");
+                window.location.href = "productos.php";</script> 
+			<?php 
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">

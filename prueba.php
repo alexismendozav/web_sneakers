@@ -75,8 +75,13 @@
                                 $usuario = array ('USUARIO' => $correo,);
                                 $_SESSION['USUARIO'][0]=$usuario;
                   
-                          }
-                ?> <script type="text/javascript"> window.location.href = "pago.php";</script> <?php                 
+                }
+                if(!isset($_SESSION['CARRITO'])){
+                    ?>  <script type="text/javascript"> window.location.href = "index.php";</script> <?php  
+                }else{
+                    ?>  <script type="text/javascript"> window.location.href = "pago.php";</script> <?php 
+                }
+                                
             }     
             else
              {
