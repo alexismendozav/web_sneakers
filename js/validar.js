@@ -4,6 +4,7 @@ function validar() {
     var exMail,exPass ;
     exMail = /\w+@\w+\.+[a-z]/;
     exPass = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[$@$!%*?&._-])([A-Za-z\d$@$!%*?&]|[^ ]){8,15}$/
+    exText = /[A-Za-z]/;
     nombre = document.getElementById("nombre").value;
     apellidos = document.getElementById("apellidos").value;
     email = document.getElementById("email").value;
@@ -23,8 +24,16 @@ function validar() {
         swal("Error", "El nombre es muy largo", "error");
         return false;
     }
+    if(!exText.test(nombre)){
+        swal("Error", "El nombre no es valido", "error");
+        return false;
+    }
     if(apellidos.length>50){
         swal("Error", "El apellido es muy largo", "error");
+        return false;
+    }
+    if(!exText.test(apellidos)){
+        swal("Error", "El nombre no es valido", "error");
         return false;
     }
     if(email.length>50){
@@ -55,8 +64,16 @@ function validar() {
         swal("Error", "El nombre del estado es muy largo", "error");
         return false;
     }
+    if(!exText.test(estado)){
+        swal("Error", "El nombre del estado no es valido", "error");
+        return false;
+    }
     if(ciudad.length>25){
         swal("Error", "El nombre de la ciudad es muy largo", "error");
+        return false;
+    }
+    if(!exText.test(ciudad)){
+        swal("Error", "El nombre de la ciudad no es valido", "error");
         return false;
     }
     if(colonia.length>45){
