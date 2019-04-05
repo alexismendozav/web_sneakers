@@ -1,25 +1,16 @@
 <?php 
 include 'agregarCarrito.php';
+include 'verificarSesion.php';
 $servicio = new SoapClient('http://interfacesavanzadasP.somee.com/Service1.svc?singleWsdl');
-$id_tenis=$_GET['id'];
-$parametros = array('objetivo'=>$id_tenis);
-$productos = $servicio -> GetBusquedaMarcaModelo($parametros);
-$nombre='';
-$precio='';
-$id='';
-foreach($productos as $lista => $producto){
-	foreach($producto as $tenis)
-	{
-	 $id=$tenis->id_producto;
-	 $precio=$tenis->precio;
-	 $nombre=$tenis->nombre; 
-	}
-}
+$id_objetivo=array('objetivo'=>3);
+$productos = $servicio -> GetBusqueda($id_objetivo);
+//var_dump($productos);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Detalles</title>
+	<title>Productos para niño</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -45,6 +36,8 @@ foreach($productos as $lista => $producto){
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
 <!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
+<!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
 <!--===============================================================================================-->
@@ -65,12 +58,17 @@ foreach($productos as $lista => $producto){
 				</div>
 
 				<span class="topbar-child1">
-					SI COMPRAS DOS O MAS PRODUCTOS TU ENVÍO ES GRATIS!
+					SI COMPRAS DOS O MAS PARES TU ENVÍO ES GRATIS!
 				</span>
 
 				<div class="topbar-child2">
 					<span class="topbar-email">
-						snickers@gmail.com
+						<?php 
+							if($inicio=="si")
+								echo $usuario;
+							else
+								echo 'snickers@gmail.com';
+						?>
 					</span>
 
 					<div class="topbar-language rs1-select2">
@@ -88,14 +86,16 @@ foreach($productos as $lista => $producto){
 				<a href="index.php" class="logo">
 					<img src="images/icons/logo.png" alt="IMG-LOGO">
 				</a>
+
 				<!-- Menu -->
 				<div class="wrap_menu">
 					<nav class="menu">
 						<ul class="main_menu">
+							
 							<li >
 								<a href="productos.php">Tienda</a>
 							</li>
-
+						
 							<li>
 								<a href="carrito.php">Carrito</a>
 							</li>
@@ -103,7 +103,6 @@ foreach($productos as $lista => $producto){
 							<li>
 								<a href="nosotros.php">Nosotros</a>
 							</li>
-
 							<li>
 								<a href="contacto.php">Contacto</a>
 							</li>
@@ -113,10 +112,18 @@ foreach($productos as $lista => $producto){
 
 				<!-- Header Icon -->
 				<div class="header-icons">
-					<a href="#" class="header-wrapicon1 dis-block">
-						<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
-					</a>
-
+					<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+                    	<span class="linedivide1"></span>
+                   		 <!-- Inicio sesion -->
+                        <?php if($inicio=="si") {?>
+                            <a href="cerrarSesion.php" class="header-wrapicon1 dis-block">	 
+								Cerrar Sesión                             
+                            </a>
+                        <?php } else if($inicio=="no") {?>
+                            <a href="login.php" class="header-wrapicon1 dis-block">
+                                Inicie Sesión                             
+                            </a>
+                        <?php }?>
 					<span class="linedivide1"></span>
 
 					<div class="header-wrapicon2">
@@ -125,34 +132,38 @@ foreach($productos as $lista => $producto){
 
 						<!-- Header cart noti -->
 						<div class="header-cart header-dropdown">
-						<ul class="header-cart-wrapitem">
-						<?php  
-						$total=0;
-						if(!empty($_SESSION['CARRITO'])) {
+							<ul class="header-cart-wrapitem">
+							<?php  
+							$total=0;
+							if(!empty($_SESSION['CARRITO'])) {
 								foreach($_SESSION['CARRITO'] as $indice=>$producto){	
-						?>
-						<li class="header-cart-item">
-							<div class="header-cart-item-img">	                                              
-								<img src="images/sneakers/<?php echo $producto['modelo'];?>.jpg" alt="IMG">						
-							</div>
+							?>
+								<li class="header-cart-item">
+									<div class="header-cart-item-img">
+										<img src="images/sneakers/<?php echo $producto['modelo']?>.jpg" alt="IMG">
+									</div>
 
-							<div class="header-cart-item-txt">
-								<a href="#" class="header-cart-item-name">
-								<?php echo $producto['nombre']; ?>
-								</a>
-								<span class="header-cart-item-info">
-								<?php echo "$".$producto['precio']; ?>
-								</span>
+									<div class="header-cart-item-txt">
+										<a href="#" class="header-cart-item-name">
+										<?php echo $producto['nombre'];?>
+										</a>
+
+										<span class="header-cart-item-info">
+										<?php echo "$".$producto['precio'];?>
+										</span>
+										<form action="agregarCarrito.php" method="post">
+											<input  type="hidden" name="modelo" id="modelo" value="<?php echo $producto['modelo'];?>"> 
+											<input class="input-delete" type="submit" name="deleteP" value="X"  />
+										</form>
+									</div>
+								</li>
+								<?php $total = $total + ($producto['precio']); } }?>
 								
-							</div>
-						</li>
-						
-						<?php $total = $total + ($producto['precio']); } }?>
-					</ul>
+							</ul>
 
-					<div class="header-cart-total">
-						Total: <?php echo "$".$total; ?>
-					</div>
+							<div class="header-cart-total">
+								Total: <?php echo "$".$total; ?>
+							</div>
 
 							<div class="header-cart-buttons">
 								<div class="header-cart-wrapbtn">
@@ -164,9 +175,15 @@ foreach($productos as $lista => $producto){
 
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									<?php if($inicio=="si"){?>
+									<a href="pago.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										Comprar
 									</a>
+									<?php } else if($inicio=="no"){?>
+									<a href="login.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+										Comprar
+									</a>
+									<?php }?>
 								</div>
 							</div>
 						</div>
@@ -198,48 +215,58 @@ foreach($productos as $lista => $producto){
 
 						<!-- Header cart noti -->
 						<div class="header-cart header-dropdown">
-						<ul class="header-cart-wrapitem">
-						<?php  
-						$total=0;
-						if(!empty($_SESSION['CARRITO'])) {
+							<ul class="header-cart-wrapitem">
+							<?php  
+							$total=0;
+							if(!empty($_SESSION['CARRITO'])) {
 								foreach($_SESSION['CARRITO'] as $indice=>$producto){	
-						?>
-						<li class="header-cart-item">
-							<div class="header-cart-item-img">	                                              
-								<img src="images/sneakers/<?php echo $producto['modelo'];?>.jpg" alt="IMG">						
-							</div>
+							?>
+								<li class="header-cart-item">
+									<div class="header-cart-item-img">
+										<img src="images/sneakers/<?php echo $producto['modelo'];?>.jpg" alt="IMG">
+									</div>
 
-							<div class="header-cart-item-txt">
-								<a href="#" class="header-cart-item-name">
-								<?php echo $producto['nombre'];?>
-								</a>
-								<span class="header-cart-item-info">
-								<?php echo "$".$producto['precio'];?>
-								</span>
-							
-							</div>
-						</li>
-						
-						<?php $total = $total + ($producto['precio']); } }?>
-					</ul>
+									<div class="header-cart-item-txt">
+										<a href="#" class="header-cart-item-name">
+										<?php echo $producto['nombre'];?>
+										</a>
 
-					<div class="header-cart-total">
-						Total: <?php echo "$".$total; ?>
-					</div>
+										<span class="header-cart-item-info">
+										<?php echo "$".$producto['precio'];?>
+										</span>
+
+										<form action="agregarCarrito.php" method="post">
+											<input  type="hidden" name="modelo" id="modelo" value="<?php echo $producto['modelo'];?>"> 
+											<input class="input-delete" type="submit" name="deleteP" value="X"  />
+										</form>
+									</div>
+								</li>
+								<?php $total = $total + ($producto['precio']); } }?>
+							</ul>
+
+							<div class="header-cart-total">
+							Total: <?php echo "$".$total; ?>
+							</div>
 
 							<div class="header-cart-buttons">
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
 									<a href="carrito.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										Ver
+										Ver 
 									</a>
 								</div>
 
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+									<?php if($inicio=="si"){?>
+									<a href="pago.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
 										Comprar
 									</a>
+									<?php } else if($inicio=="no"){?>
+									<a href="login.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+										Comprar
+									</a>
+									<?php }?>
 								</div>
 							</div>
 						</div>
@@ -260,14 +287,19 @@ foreach($productos as $lista => $producto){
 				<ul class="main-menu">
 					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
 						<span class="topbar-child1">
-							SI COMPRAS DOS O  MAS PARES TU ENVÍO SERA GRATIS !
+							SI COMPRAR DOS O MAS PARES, TU ENVÍO SERA GARTIS
 						</span>
 					</li>
 
 					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
 						<div class="topbar-child2-mobile">
 							<span class="topbar-email">
-								snickers@gmail.com
+							<?php 
+								if($inicio=="si")
+									echo $usuario;
+								else
+									echo 'snickers@gmail.com';
+							?>
 							</span>
 
 							<div class="topbar-language rs1-select2">
@@ -292,17 +324,16 @@ foreach($productos as $lista => $producto){
 
 					<li class="item-menu-mobile">
 						<a href="index.php">Inicio</a>
+						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
 					</li>
 
 					<li class="item-menu-mobile">
 						<a href="productos.php">Tienda</a>
-					</li>
+					</li>				
 
 					<li class="item-menu-mobile">
 						<a href="carrito.php">Carrito</a>
-					</li>
-
-
+					</li>				
 					<li class="item-menu-mobile">
 						<a href="nosotros.php">Nosotros</a>
 					</li>
@@ -310,327 +341,238 @@ foreach($productos as $lista => $producto){
 					<li class="item-menu-mobile">
 						<a href="contacto.php">Contacto</a>
 					</li>
+					<?php if($inicio=="si"){?>
+					<li class="item-menu-mobile">
+						<a href="cerrarSesion.php">Cerrar Sesión</a>
+					</li>
+					<?php }?>
 				</ul>
 			</nav>
 		</div>
 	</header>
 
-	<!-- breadcrumb -->
-	<div class="bread-crumb bgwhite flex-w p-l-52 p-r-15 p-t-30 p-l-15-sm">
-		<a href="index.php" class="s-text16">
-			Inicio
-			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
-		</a>
-
-		<a href="productos.php" class="s-text16">
-			Tienda
-			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
-		</a>
-
-		<a href="#" class="s-text16">
-		<?php  
-			foreach($productos as $lista => $producto){
-					foreach($producto as $tenis)
-					{
-					 if(($tenis->objetivo)==1)
-					 echo 'Hombres';
-					 if(($tenis->objetivo)==2)
-					 echo 'Mujeres';	
-					 if(($tenis->objetivo)==3)
-					 echo 'Niños';	
-					 if(($tenis->objetivo)==4)
-					 echo 'Niñas';		
-					}
-				}
-		?>
-			<i class="fa fa-angle-right m-l-8 m-r-9" aria-hidden="true"></i>
-		</a>
-
-		<span class="s-text17">
-
-			<?php  
-			foreach($productos as $lista => $producto){
-					foreach($producto as $tenis)
-					{
-					 echo $tenis->nombre;	
-					}
-				}
-			?>
-		
-		</span>
-	</div>
-
-	<!-- Product Detail -->
-	<div class="container bgwhite p-t-35 p-b-80">
-		<div class="flex-w flex-sb">
-			<div class="w-size13 p-t-30 respon5">
-				<div class="wrap-slick3 flex-sb flex-w">
-					<div class="wrap-slick3-dots"></div>
-
-					<div class="slick3">
-						<div class="item-slick3" data-thumb="images/sneakers/<?php echo $tenis->id_producto;?>.jpg">
-							<div class="wrap-pic-w">
-								<img src="images/sneakers/<?php echo $tenis->id_producto;?>.jpg" alt="IMG-PRODUCT">
-							</div>
-						</div>
-
-						<div class="item-slick3" data-thumb="images/sneakers/<?php echo $tenis->id_producto;?>_2.png">
-							<div class="wrap-pic-w">
-								<img src="images/sneakers/<?php echo $tenis->id_producto;?>_2.png" alt="IMG-PRODUCT">
-							</div>
-						</div>
-
-						<div class="item-slick3" data-thumb="images/sneakers/<?php echo $tenis->id_producto;?>_3.png">
-							<div class="wrap-pic-w">
-								<img src="images/sneakers/<?php echo $tenis->id_producto;?>_3.png" alt="IMG-PRODUCT">
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-
-			<div class="w-size14 p-t-30 respon5">
-				<h4 class="product-detail-name m-text16 p-b-13">
-				<?php  
-				foreach($productos as $lista => $producto){
-					foreach($producto as $tenis)
-					{					
-					 echo $tenis->nombre;	
-					}
-				}
-				?>	
-				</h4>
-
-				<span class="m-text17">
-				<?php  
-				foreach($productos as $lista => $producto){
-					foreach($producto as $tenis)
-					{
-					 echo "$".$tenis->precio;	
-					}
-				}
-				?>	
-				</span>
-
-				<p class="s-text8 p-t-10">
-				<?php  
-				foreach($producto as $tenis)
-					{foreach($productos as $lista => $producto){
-					
-					 echo $tenis->marca;	
-					}
-				}
-				?>
-				</p>
-
-				<!--  -->
-				<div class="p-t-33 p-b-60">
-					<div class="flex-m flex-w p-b-10">
-						<div class="s-text15 w-size15 t-center">
-							Numero
-						</div>
-
-						<div class="rs2-select2 rs3-select2 bo4 of-hidden w-size16">
-							<select class="selection-2" name="size">
-								<option>Elije una opción</option>
-								<option>20</option>
-								<option>21</option>
-								<option>22</option>
-								<option>23</option>
-								<option>24</option>
-								<option>25</option>
-								<option>26</option>
-								<option>27</option>
-							</select>
-						</div>
-					</div>
-<!--
-					<div class="flex-m flex-w">
-						<div class="s-text15 w-size15 t-center">
-							Color
-						</div>
-
-						<div class="rs2-select2 rs3-select2 bo4 of-hidden w-size16">
-							<select class="selection-2" name="color">
-								<option>Elige una opción</option>
-								<option>Gris</option>
-								<option>Rojo</option>
-								<option>Negro</option>
-								<option>Azul</option>
-							</select>
-						</div>
-					</div>
--->
-					<div class="flex-r-m flex-w p-t-10">
-						<div class="w-size16 flex-m flex-w">
-							<div class="flex-w bo5 of-hidden m-r-22 m-t-10 m-b-10">
-								<!--<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
-									<i class="fs-12 fa fa-minus" aria-hidden="true"></i>
-								</button> -->
-
-								<input disabled class="size8 m-text18 t-center num-product" type="number" name="num-product" value="1">
-
-							<!--	<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
-									<i class="fs-12 fa fa-plus" aria-hidden="true"></i>
-								</button> -->
-							</div>
-
-							<div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
-								<!-- Button -->
-								<form action="agregarCarrito.php" method="post">
-									<input  type="hidden" name="imagen" id="imagen" value="<?php echo $id;?>"> 
-									<input type="hidden" name="nombre" id="nombre" value="<?php echo $nombre; ?>">                                                 
-									<input type="hidden" name="precio" id="precio" value="<?php echo $precio; ?>">                                                 
-									<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" name="add" value="detalle">Agregar al carrito</button>
-								</form>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="p-b-45">
-					<span class="s-text8 m-r-35">SKU: 
-					<?php  
-					foreach($productos as $lista => $producto){
-						foreach($producto as $tenis)
-						{
-						 echo $tenis->id_producto;
-						 	
-						}
-					}
-					?>
-				</span>
-					<span class="s-text8">Categoria:
-					<?php  
-					foreach($productos as $lista => $producto){
-						foreach($producto as $tenis)
-						{
-						if(($tenis->objetivo)==1)
-						echo 'Hombres';
-						if(($tenis->objetivo)==2)
-						echo 'Mujeres';	
-						if(($tenis->objetivo)==3)
-						echo 'Niños';	
-						if(($tenis->objetivo)==4)
-						echo 'Niñas';		
-						}
-					}
-					?>	
-					</span>
-				</div>
-
-				<!--  -->
-				<div class="wrap-dropdown-content bo6 p-t-15 p-b-14 active-dropdown-content">
-					<h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
-						Descripción
-						<i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
-						<i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
-					</h5>
-
-					<div class="dropdown-content dis-none p-t-15 p-b-23">
-						<p class="s-text8">
-						<?php  
-						foreach($productos as $lista => $producto){
-							foreach($producto as $tenis)
-							{
-								echo $tenis->descripcion;	
-							}
-						}
-						?>
-						</p>
-					</div>
-				</div>
-
-				<div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
-					<h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
-						Información Adicional
-						<i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
-						<i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
-					</h5>
-
-					<div class="dropdown-content dis-none p-t-15 p-b-23">
-						<p class="s-text8">
-							.
-						</p>
-					</div>
-				</div>
-
-				<div class="wrap-dropdown-content bo7 p-t-15 p-b-14">
-					<h5 class="js-toggle-dropdown-content flex-sb-m cs-pointer m-text19 color0-hov trans-0-4">
-						Comentarios (0)
-						<i class="down-mark fs-12 color1 fa fa-minus dis-none" aria-hidden="true"></i>
-						<i class="up-mark fs-12 color1 fa fa-plus" aria-hidden="true"></i>
-					</h5>
-
-					<div class="dropdown-content dis-none p-t-15 p-b-23">
-						<p class="s-text8">
-							.
-						</p>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
+	<!-- Title Page -->
+	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(images/banner_cart.png);">
+		<h2 class="l-text2 t-center">
+			
+		</h2>
+		<p class="m-text13 t-center">
+			
+		</p>
+	</section>
 
 
-	<!-- Relate Product -->
-	<section class="relateproduct bgwhite p-t-45 p-b-138">
+	<!-- Content page -->
+	<section class="bgwhite p-t-55 p-b-65">
 		<div class="container">
-			<div class="sec-title p-b-60">
-				<h3 class="m-text5 t-center">
-					Productos relacionados
-				</h3>
-			</div>
+			<div class="row">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+					<div class="leftbar p-r-20 p-r-0-sm">
+						<!--  -->
+						<h4 class="m-text14 p-b-7">
+							Categorias
+						</h4>
 
-			<!-- Slide2 -->
-			<div class="wrap-slick2">
-				<div class="slick2">
-				  <!-- INICIO-->
-				  <?php
-				  $parametro = array('objetivo'=>$tenis->marca);				   
-				   $productosRelacionados = $servicio -> GetBusquedaMarcaModelo($parametro);
-				   $i =0 ;
-					foreach($productosRelacionados as $lista => $productoss){
-						foreach($productoss as $teniss)
-						{
-							while(isset($teniss[$i])){ ?> 
-					<div class="item-slick2 p-l-15 p-r-15">
-						<!-- Block2 -->
-						<div class="block2">
-							<div class="block2-img wrap-pic-w of-hidden pos-relative ">
-								<img src="images/sneakers/<?php echo $teniss[$i]->id_producto;?>.jpg" alt="IMG-PRODUCT">
+						<ul class="p-b-54">
+							<li class="p-t-4">
+								<a href="productos.php" class="s-text13 active1">
+									Todo
+								</a>
+							</li>
 
-								<div class="block2-overlay trans-0-4">
-									<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
-										<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
-										<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
-									</a>
+							<li class="p-t-4">
+								<a href="mujeres.php" class="s-text13">
+									Mujeres
+								</a>
+							</li>
 
-									<div class="block2-btn-addcart w-size1 trans-0-4">
-										<!-- Button -->
-										<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4">
-											Agregar al carrito
-										</button>
-									</div>
+							<li class="p-t-4">
+								<a href="hombres.php" class="s-text13">
+									Hombres
+								</a>
+							</li>
+
+							<li class="p-t-4">
+								<a href="productos.php" class="s-text13">
+									Niñas
+								</a>
+							</li>
+
+							<li class="p-t-4">
+								<a href="niños.php" class="s-text13">
+									Niños
+								</a>
+							</li>
+						</ul>
+
+						<!--  -->
+						<h4 class="m-text14 p-b-32">
+							
+						</h4>
+
+						<div class="filter-price p-t-22 p-b-50 bo3">
+							<div class="m-text15 p-b-17">
+								
+							</div>
+
+							<div class="wra-filter-bar">
+								<!--<div id="filter-bar"></div>-->
+							</div>
+
+							<div class="flex-sb-m flex-w p-t-16">
+								<div class="w-size11">
+									<!-- Button 
+									<button class="flex-c-m size4 bg7 bo-rad-15 hov1 s-text14 trans-0-4">
+										Filtros
+									</button>-->
+								</div>
+
+								<div class="s-text3 p-t-10 p-b-10">
+									<!--Rango: $<span id="value-lower">0</span> - $<span id="value-upper">5000</span>-->
 								</div>
 							</div>
-
-							<div class="block2-txt p-t-20">
-								<a href="product-detail.php" class="block2-name dis-block s-text3 p-b-5">
-								<?php echo $teniss[$i]->nombre;?>	
-								</a>
-
-								<span class="block2-price m-text6 p-r-5">
-								<?php echo "$".$teniss[$i]->precio; $i++?>
-								</span>
+						</div>
+<!--
+						<div class="filter-color p-t-22 p-b-50 bo3">
+							<div class="m-text15 p-b-12">
+								Color
 							</div>
+
+							<ul class="flex-w">
+								<li class="m-r-10">
+									<input class="checkbox-color-filter" id="color-filter1" type="checkbox" name="color-filter1">
+									<label class="color-filter color-filter1" for="color-filter1"></label>
+								</li>
+
+								<li class="m-r-10">
+									<input class="checkbox-color-filter" id="color-filter2" type="checkbox" name="color-filter2">
+									<label class="color-filter color-filter2" for="color-filter2"></label>
+								</li>
+
+								<li class="m-r-10">
+									<input class="checkbox-color-filter" id="color-filter3" type="checkbox" name="color-filter3">
+									<label class="color-filter color-filter3" for="color-filter3"></label>
+								</li>
+
+								<li class="m-r-10">
+									<input class="checkbox-color-filter" id="color-filter4" type="checkbox" name="color-filter4">
+									<label class="color-filter color-filter4" for="color-filter4"></label>
+								</li>
+
+								<li class="m-r-10">
+									<input class="checkbox-color-filter" id="color-filter5" type="checkbox" name="color-filter5">
+									<label class="color-filter color-filter5" for="color-filter5"></label>
+								</li>
+
+								<li class="m-r-10">
+									<input class="checkbox-color-filter" id="color-filter6" type="checkbox" name="color-filter6">
+									<label class="color-filter color-filter6" for="color-filter6"></label>
+								</li>
+
+								<li class="m-r-10">
+									<input class="checkbox-color-filter" id="color-filter7" type="checkbox" name="color-filter7">
+									<label class="color-filter color-filter7" for="color-filter7"></label>
+								</li>
+							</ul>
+						</div>
+-->
+						<div class="search-product pos-relative bo4 of-hidden">
+							<!--<input class="s-text7 size6 p-l-23 p-r-50" type="text" name="search-product" placeholder="Buscar Productos...">
+
+							<button class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4">
+								<i class="fs-12 fa fa-search" aria-hidden="true"></i>
+							</button>-->
 						</div>
 					</div>
-							<?php }}} ?>				
-					<!--FIN -->
+				</div>
+
+				<div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
+					<!--  -->
+					<div class="flex-sb-m flex-w p-b-35">
+						<div class="flex-w">
+							<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
+								<select class="selection-2" name="sorting">
+									<option>Clasificación por defecto</option>
+									<option>Popularidad</option>
+									<option>Precio: bajo a alto</option>
+									<option>Precio: alto a bajo</option>
+								</select>
+							</div>
+
+							<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
+								<select class="selection-2" name="sorting">
+									<option>Precio</option>
+									<option>$0.00 - $50.00</option>
+									<option>$50.00 - $100.00</option>
+									<option>$100.00 - $150.00</option>
+									<option>$150.00 - $200.00</option>
+									<option>$200.00+</option>
+
+								</select>
+							</div>
+						</div>
+
+						<span class="s-text8 p-t-5 p-b-5">
+							Viendo 1–12 de 16 resultados
+						</span>
+					</div>
+
+					<!-- Productos -->
+					<div class="row">
+					<!-- EMPIEZA EL CART-->
+					<?php
+					$i=0;
+					foreach($productos as $lista => $producto){
+						foreach($producto as $tenis)
+						{
+							while(isset($tenis[$i])){ 
+					?>
+						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+							<!-- Block2 -->
+							<div class="block2">
+								<div class="block2-img wrap-pic-w of-hidden pos-relative">
+									<img src="images/sneakers/<?php echo $tenis[$i]->id_producto;?>.jpg" alt="IMG-PRODUCT">
+
+									<div class="block2-overlay trans-0-4">
+										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+											<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+											<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+										</a>
+
+										<div class="block2-btn-addcart w-size1 trans-0-4">
+											<!-- Button -->
+											<form action="agregarCarrito.php" method="post">
+													<input type="hidden" name="objetivo" id="objetivo" value="<?php echo $tenis[$i]->id_objetivo=1;?>">
+													<input  type="hidden" name="imagen" id="imagen" value="<?php echo $tenis[$i]->id_producto;?>"> 
+													<input type="hidden" name="nombre" id="nombre" value="<?php echo $tenis[$i]->nombre; ?>">                                                 
+													<input type="hidden" name="precio" id="precio" value="<?php echo $tenis[$i]->precio; ?>">                                                 
+													<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" name="add" value="tienda">Agregar al carrito</button>
+											</form>
+										</div>
+									</div>
+								</div>
+
+								<div class="block2-txt p-t-20">
+									<a href="product-detail.php?id=<?php echo $tenis[$i]->nombre;?>" class="block2-name dis-block s-text3 p-b-5">
+									<?php echo $tenis[$i]->nombre;?>
+									</a>
+
+									<span class="block2-price m-text6 p-r-5">
+									<?php echo "$".$tenis[$i]->precio;$i++?>
+									</span>
+								</div>
+							</div>
+						</div>
+					<?php }}} ?>
+                       <!-- TERMINA EL CART -->
+					<!-- Pagination 
+					
+					<div class="pagination flex-m flex-w p-t-26">				
+						<a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
+						<a href="#" class="item-pagination flex-c-m trans-0-4">2</a>
+					</div>-->
 				</div>
 			</div>
-
 		</div>
 	</section>
 
@@ -649,11 +591,11 @@ foreach($productos as $lista => $producto){
 					</p>
 
 					<div class="flex-m p-t-30">
-						<a href="https://www.facebook.com" class="fs-18 color1 p-r-20 fa fa-facebook"></a>
-						<a href="https://www.instagram.com" class="fs-18 color1 p-r-20 fa fa-instagram"></a>
-						<a href="https://www.pinterest.com" class="fs-18 color1 p-r-20 fa fa-pinterest-p"></a>
-						<a href="https://www.snapchat.com" class="fs-18 color1 p-r-20 fa fa-snapchat-ghost"></a>
-						<a href="https://www.youtube.com" class="fs-18 color1 p-r-20 fa fa-youtube-play"></a>
+						<a href="https://www.facebook.com" class="topbar-social-item fa fa-facebook"></a>
+						<a href="https://www.instagram.com" class="topbar-social-item fa fa-instagram"></a>
+						<a href="https://www.pinterest.com" class="topbar-social-item fa fa-pinterest-p"></a>
+						<a href="https://www.snapchat.com" class="topbar-social-item fa fa-snapchat-ghost"></a>
+						<a href="https://www.youtube.com" class="topbar-social-item fa fa-youtube-play"></a>
 					</div>
 				</div>
 			</div>
@@ -665,7 +607,7 @@ foreach($productos as $lista => $producto){
 
 				<ul>
 					<li class="p-b-9">
-						<a href="hombbres.php" class="s-text7">
+						<a href="hombres.php" class="s-text7">
 							Hombres
 						</a>
 					</li>
@@ -788,6 +730,8 @@ foreach($productos as $lista => $producto){
 	</footer>
 
 
+
+
 	<!-- Back to top -->
 	<div class="btn-back-to-top bg0-hov" id="myBtn">
 		<span class="symbol-btn-back-to-top">
@@ -822,6 +766,9 @@ foreach($productos as $lista => $producto){
 		});
 	</script>
 <!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/daterangepicker/moment.min.js"></script>
+	<script type="text/javascript" src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
 	<script type="text/javascript" src="vendor/slick/slick.min.js"></script>
 	<script type="text/javascript" src="js/slick-custom.js"></script>
 <!--===============================================================================================-->
@@ -830,7 +777,7 @@ foreach($productos as $lista => $producto){
 		$('.block2-btn-addcart').each(function(){
 			var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
 			$(this).on('click', function(){
-				swal(nameProduct, "El producto a sido agregado al carrito !", "success");
+				swal(nameProduct, "is added to cart !", "success");
 			});
 		});
 
@@ -840,15 +787,33 @@ foreach($productos as $lista => $producto){
 				swal(nameProduct, "is added to wishlist !", "success");
 			});
 		});
-
-		$('.btn-addcart-product-detail').each(function(){
-			var nameProduct = $('.product-detail-name').html();
-			$(this).on('click', function(){
-				swal(nameProduct, "is added to wishlist !", "success");
-			});
-		});
 	</script>
 
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/noui/nouislider.min.js"></script>
+	<script type="text/javascript">
+		/*[ No ui ]
+	    ===========================================================*/
+	    var filterBar = document.getElementById('filter-bar');
+
+	    noUiSlider.create(filterBar, {
+	        start: [ 50, 200 ],
+	        connect: true,
+	        range: {
+	            'min': 50,
+	            'max': 200
+	        }
+	    });
+
+	    var skipValues = [
+	    document.getElementById('value-lower'),
+	    document.getElementById('value-upper')
+	    ];
+
+	    filterBar.noUiSlider.on('update', function( values, handle ) {
+	        skipValues[handle].innerHTML = Math.round(values[handle]) ;
+	    });
+	</script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>
 
