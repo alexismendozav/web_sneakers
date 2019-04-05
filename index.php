@@ -553,7 +553,7 @@ $productos = $servicio -> GetProductos();
 
 						<div class="block1-wrapbtn w-size2">
 							<!-- Button -->
-							<a href="productos.php" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+							<a href="hombres.php" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
 								Hombres
 							</a>
 						</div>
@@ -567,7 +567,7 @@ $productos = $servicio -> GetProductos();
 
 						<div class="block1-wrapbtn w-size2">
 							<!-- Button -->
-							<a href="productos.php" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+							<a href="mujeres.php" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
 								Mujeres
 							</a>
 						</div>
@@ -581,7 +581,7 @@ $productos = $servicio -> GetProductos();
 
 						<div class="block1-wrapbtn w-size2">
 							<!-- Button -->
-							<a href="productos.php" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
+							<a href="niños.php" class="flex-c-m size2 m-text2 bg3 hov1 trans-0-4">
 								Niños
 							</a>
 						</div>
@@ -2013,25 +2013,25 @@ $productos = $servicio -> GetProductos();
 
 				<ul>
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
+						<a href="hombres.php" class="s-text7">
 							Hombres
 						</a>
 					</li>
 
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
+						<a href="mujeres.php" class="s-text7">
 							Mujeres
 						</a>
 					</li>
 
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
+						<a href="niños.php" class="s-text7">
 							Niños
 						</a>
 					</li>
 
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
+						<a href="niñas.php" class="s-text7">
 							Niñas
 						</a>
 					</li>
@@ -2072,14 +2072,14 @@ $productos = $servicio -> GetProductos();
 
 				<ul>
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
+						<a href="http://sneakers2.000webhostapp.com/" class="s-text7">
 							Foro
 						</a>
 					</li>
 
 					<li class="p-b-9">
 						<a href="#" class="s-text7">
-							Devoluciones
+							
 						</a>
 					</li>
 					
@@ -2098,10 +2098,10 @@ $productos = $servicio -> GetProductos();
 					</div>
 
 					<div class="w-size2 p-t-20">
-						<!-- Button -->
-						<button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
+						<!-- Button 						<button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
 							Subscribete
-						</button>
+						</button>-->
+
 					</div>
 
 				</form>

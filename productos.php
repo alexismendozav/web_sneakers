@@ -379,25 +379,25 @@ $productos = $servicio -> GetProductos();
 							</li>
 
 							<li class="p-t-4">
-								<a href="productos.php" class="s-text13">
+								<a href="mujeres.php" class="s-text13">
 									Mujeres
 								</a>
 							</li>
 
 							<li class="p-t-4">
-								<a href="productos.php" class="s-text13">
+								<a href="hombres.php" class="s-text13">
 									Hombres
 								</a>
 							</li>
 
 							<li class="p-t-4">
-								<a href="productos.php" class="s-text13">
+								<a href="niñas.php" class="s-text13">
 									Niñas
 								</a>
 							</li>
 
 							<li class="p-t-4">
-								<a href="productos.php" class="s-text13">
+								<a href="niños.php" class="s-text13">
 									Niños
 								</a>
 							</li>
@@ -603,25 +603,25 @@ $productos = $servicio -> GetProductos();
 
 				<ul>
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
+						<a href="hombres.php" class="s-text7">
 							Hombres
 						</a>
 					</li>
 
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
+						<a href="mujeres.php" class="s-text7">
 							Mujeres
 						</a>
 					</li>
 
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
+						<a href="niños.php" class="s-text7">
 							Niños
 						</a>
 					</li>
 
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
+						<a href="niñas.php" class="s-text7">
 							Niñas
 						</a>
 					</li>
@@ -662,14 +662,14 @@ $productos = $servicio -> GetProductos();
 
 				<ul>
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
+						<a href="http://sneakers2.000webhostapp.com/" class="s-text7">
 							Foro
 						</a>
 					</li>
 
 					<li class="p-b-9">
 						<a href="#" class="s-text7">
-							Devoluciones
+							
 						</a>
 					</li>
 					
@@ -690,7 +690,7 @@ $productos = $servicio -> GetProductos();
 					<div class="w-size2 p-t-20">
 						<!-- Button -->
 						<button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
-							Subscribete
+							
 						</button>
 					</div>
 

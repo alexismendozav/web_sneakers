@@ -1,12 +1,16 @@
 <?php 
 include 'agregarCarrito.php';
 include 'verificarSesion.php';
-$total=0;
+$servicio = new SoapClient('http://interfacesavanzadasP.somee.com/Service1.svc?singleWsdl');
+$id_objetivo=array('objetivo'=>3);
+$productos = $servicio -> GetBusqueda($id_objetivo);
+//var_dump($productos);
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<title>Carrito</title>
+	<title>Productos para niño</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 <!--===============================================================================================-->
@@ -31,6 +35,8 @@ $total=0;
 	<link rel="stylesheet" type="text/css" href="vendor/select2/select2.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="vendor/slick/slick.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="vendor/noui/nouislider.min.css">
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="css/util.css">
 	<link rel="stylesheet" type="text/css" href="css/main.css">
@@ -67,7 +73,7 @@ $total=0;
 
 					<div class="topbar-language rs1-select2">
 						<select class="selection-1" name="time">
-							<option>MXN</option>
+							<option>MXN</option>	
 							<option>USD</option>
 							<option>EUR</option>
 						</select>
@@ -85,7 +91,7 @@ $total=0;
 				<div class="wrap_menu">
 					<nav class="menu">
 						<ul class="main_menu">
-					
+							
 							<li >
 								<a href="productos.php">Tienda</a>
 							</li>
@@ -93,11 +99,10 @@ $total=0;
 							<li>
 								<a href="carrito.php">Carrito</a>
 							</li>
-						
+							
 							<li>
 								<a href="nosotros.php">Nosotros</a>
 							</li>
-
 							<li>
 								<a href="contacto.php">Contacto</a>
 							</li>
@@ -107,7 +112,7 @@ $total=0;
 
 				<!-- Header Icon -->
 				<div class="header-icons">
-						<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
+					<img src="images/icons/icon-header-01.png" class="header-icon1" alt="ICON">
                     	<span class="linedivide1"></span>
                    		 <!-- Inicio sesion -->
                         <?php if($inicio=="si") {?>
@@ -119,7 +124,7 @@ $total=0;
                                 Inicie Sesión                             
                             </a>
                         <?php }?>
-						<span class="linedivide1"></span>
+					<span class="linedivide1"></span>
 
 					<div class="header-wrapicon2">
 						<img src="images/icons/icon-header-02.png" class="header-icon1 js-show-header-dropdown" alt="ICON">
@@ -128,14 +133,14 @@ $total=0;
 						<!-- Header cart noti -->
 						<div class="header-cart header-dropdown">
 							<ul class="header-cart-wrapitem">
-							<?php
-							$total=0;  
+							<?php  
+							$total=0;
 							if(!empty($_SESSION['CARRITO'])) {
 								foreach($_SESSION['CARRITO'] as $indice=>$producto){	
 							?>
 								<li class="header-cart-item">
 									<div class="header-cart-item-img">
-										<img src="images/sneakers/<?php echo $producto['modelo'];?>.jpg" alt="IMG">
+										<img src="images/sneakers/<?php echo $producto['modelo']?>.jpg" alt="IMG">
 									</div>
 
 									<div class="header-cart-item-txt">
@@ -146,15 +151,14 @@ $total=0;
 										<span class="header-cart-item-info">
 										<?php echo "$".$producto['precio'];?>
 										</span>
-                                        <!--FORM PARA ELIMINAR EL PRODUCTO DEL CARRITO -->
 										<form action="agregarCarrito.php" method="post">
 											<input  type="hidden" name="modelo" id="modelo" value="<?php echo $producto['modelo'];?>"> 
-											<input class="input-delete" type="submit" name="deleteC" value="X"  />
+											<input class="input-delete" type="submit" name="deleteP" value="X"  />
 										</form>
-										 <!--TERMINA EL FORM -->
 									</div>
 								</li>
 								<?php $total = $total + ($producto['precio']); } }?>
+								
 							</ul>
 
 							<div class="header-cart-total">
@@ -233,7 +237,7 @@ $total=0;
 
 										<form action="agregarCarrito.php" method="post">
 											<input  type="hidden" name="modelo" id="modelo" value="<?php echo $producto['modelo'];?>"> 
-											<input class="input-delete" type="submit" name="deleteC" value="X"  />
+											<input class="input-delete" type="submit" name="deleteP" value="X"  />
 										</form>
 									</div>
 								</li>
@@ -248,7 +252,7 @@ $total=0;
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
 									<a href="carrito.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										Ver Carrito
+										Ver 
 									</a>
 								</div>
 
@@ -283,7 +287,7 @@ $total=0;
 				<ul class="main-menu">
 					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
 						<span class="topbar-child1">
-							TU ENVÍO ES GRATIS SI COMPRAS DOS O MAS ARTICULOS!
+							SI COMPRAR DOS O MAS PARES, TU ENVÍO SERA GARTIS
 						</span>
 					</li>
 
@@ -300,7 +304,7 @@ $total=0;
 
 							<div class="topbar-language rs1-select2">
 								<select class="selection-1" name="time">
-									<option>MXN</option>
+									<option>MXN</option>	
 									<option>USD</option>
 									<option>EUR</option>
 								</select>
@@ -317,17 +321,19 @@ $total=0;
 							<a href="https://www.youtube.com" class="topbar-social-item fa fa-youtube-play"></a>
 						</div>
 					</li>
+
 					<li class="item-menu-mobile">
 						<a href="index.php">Inicio</a>
+						<i class="arrow-main-menu fa fa-angle-right" aria-hidden="true"></i>
 					</li>
+
 					<li class="item-menu-mobile">
 						<a href="productos.php">Tienda</a>
-					</li>
+					</li>				
 
 					<li class="item-menu-mobile">
 						<a href="carrito.php">Carrito</a>
-					</li>
-
+					</li>				
 					<li class="item-menu-mobile">
 						<a href="nosotros.php">Nosotros</a>
 					</li>
@@ -335,7 +341,6 @@ $total=0;
 					<li class="item-menu-mobile">
 						<a href="contacto.php">Contacto</a>
 					</li>
-
 					<?php if($inicio=="si"){?>
 					<li class="item-menu-mobile">
 						<a href="cerrarSesion.php">Cerrar Sesión</a>
@@ -347,144 +352,229 @@ $total=0;
 	</header>
 
 	<!-- Title Page -->
-	<section class="bg-title-page p-t-40 p-b-50 flex-col-c-m" style="background-image: url(images/banner_cart.png);">
+	<section class="bg-title-page p-t-50 p-b-40 flex-col-c-m" style="background-image: url(images/banner_cart.png);">
 		<h2 class="l-text2 t-center">
 			
 		</h2>
+		<p class="m-text13 t-center">
+			
+		</p>
 	</section>
 
-	<!-- Cart -->
-	<section class="cart bgwhite p-t-70 p-b-100">
+
+	<!-- Content page -->
+	<section class="bgwhite p-t-55 p-b-65">
 		<div class="container">
-			<!-- Cart item -->
-			<div class="container-table-cart pos-relative">
-				<div class="wrap-table-shopping-cart bgwhite">
-					<table class="table-shopping-cart">
-						<tr class="table-head">
-							<th class="column-1"></th>
-							<th class="column-2">Producto</th>
-							<th class="column-3">Precio</th>
-							<th class="column-4 p-l-70">Cantidad</th>
-							<th class="column-5">Total</th>
-							<th class="column-1">Eliminar</th>
-						</tr>
-					   <!-- AQUI EMPIEZA LA FILA DEL CARRITO -->
-					   <?php  if(!empty($_SESSION['CARRITO'])) {
-								foreach($_SESSION['CARRITO'] as $indice=>$producto){	
-						?>
-						<tr class="table-row">
-							<td class="column-1">
-								<div class="cart-img-product b-rad-4 o-f-hidden">
-									<img src="images/sneakers/<?php echo $producto['modelo'];?>.jpg" alt="IMG-PRODUCT">
+			<div class="row">
+				<div class="col-sm-6 col-md-4 col-lg-3 p-b-50">
+					<div class="leftbar p-r-20 p-r-0-sm">
+						<!--  -->
+						<h4 class="m-text14 p-b-7">
+							Categorias
+						</h4>
+
+						<ul class="p-b-54">
+							<li class="p-t-4">
+								<a href="productos.php" class="s-text13 active1">
+									Todo
+								</a>
+							</li>
+
+							<li class="p-t-4">
+								<a href="mujeres.php" class="s-text13">
+									Mujeres
+								</a>
+							</li>
+
+							<li class="p-t-4">
+								<a href="hombres.php" class="s-text13">
+									Hombres
+								</a>
+							</li>
+
+							<li class="p-t-4">
+								<a href="productos.php" class="s-text13">
+									Niñas
+								</a>
+							</li>
+
+							<li class="p-t-4">
+								<a href="niños.php" class="s-text13">
+									Niños
+								</a>
+							</li>
+						</ul>
+
+						<!--  -->
+						<h4 class="m-text14 p-b-32">
+							
+						</h4>
+
+						<div class="filter-price p-t-22 p-b-50 bo3">
+							<div class="m-text15 p-b-17">
+								
+							</div>
+
+							<div class="wra-filter-bar">
+								<!--<div id="filter-bar"></div>-->
+							</div>
+
+							<div class="flex-sb-m flex-w p-t-16">
+								<div class="w-size11">
+									<!-- Button 
+									<button class="flex-c-m size4 bg7 bo-rad-15 hov1 s-text14 trans-0-4">
+										Filtros
+									</button>-->
 								</div>
-							</td>
-							<td class="column-2"><?php echo $producto['nombre'];?></td>
-							<td class="column-3"><?php echo "$".$producto['precio'];?></td>
-							<td class="column-4">
-								<div class="flex-w bo5 of-hidden w-size17">
-									<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
-										<i class="fs-12 fa fa-minus" aria-hidden="true"></i>
-									</button>
 
-									<input class="size8 m-text18 t-center num-product" type="number" name="num-product1" value="1">
-
-									<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
-										<i class="fs-12 fa fa-plus" aria-hidden="true"></i>
-									</button>
+								<div class="s-text3 p-t-10 p-b-10">
+									<!--Rango: $<span id="value-lower">0</span> - $<span id="value-upper">5000</span>-->
 								</div>
-							</td>
-							<td class="column-5"><?php echo "$".$producto['precio'];?></td>
-							<td class="column-1">
-								<form action="agregarCarrito.php" method="post">
-									<input  type="hidden" name="modelo" id="modelo" value="<?php echo $producto['modelo'];?>"> 
-									<input class="input-delete" type="submit" name="deleteC" value="X"  />
-								</form>
-							</td>
-						</tr>
-						<?php }} ?>
-						<!-- AQUI TERMINA LA FILA DEL CARRITO-->
-					</table>
-				</div>
-			</div>
+							</div>
+						</div>
+<!--
+						<div class="filter-color p-t-22 p-b-50 bo3">
+							<div class="m-text15 p-b-12">
+								Color
+							</div>
 
-			<div class="flex-w flex-sb-m p-t-25 p-b-25 bo8 p-l-35 p-r-60 p-lr-15-sm">
-				<div class="flex-w flex-m w-full-sm">
-					<div class="size11 bo4 m-r-10">
-						<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="coupon-code" placeholder="Codigo del cupon">
-					</div>
+							<ul class="flex-w">
+								<li class="m-r-10">
+									<input class="checkbox-color-filter" id="color-filter1" type="checkbox" name="color-filter1">
+									<label class="color-filter color-filter1" for="color-filter1"></label>
+								</li>
 
-					<div class="size12 trans-0-4 m-t-10 m-b-10 m-r-10">
-						<!-- Button -->
-						<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-							Aplicar Cupon
-						</button>
-					</div>
-				</div>
+								<li class="m-r-10">
+									<input class="checkbox-color-filter" id="color-filter2" type="checkbox" name="color-filter2">
+									<label class="color-filter color-filter2" for="color-filter2"></label>
+								</li>
 
-				<div class="size10 trans-0-4 m-t-10 m-b-10">
-					<!-- Button -->
-					<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-						Actualizar Carrito
-					</button>
-				</div>
-			</div>
+								<li class="m-r-10">
+									<input class="checkbox-color-filter" id="color-filter3" type="checkbox" name="color-filter3">
+									<label class="color-filter color-filter3" for="color-filter3"></label>
+								</li>
 
-			<!-- Total -->
-			<div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
-				<h5 class="m-text20 p-b-24">
-					Total: 
-				</h5>
+								<li class="m-r-10">
+									<input class="checkbox-color-filter" id="color-filter4" type="checkbox" name="color-filter4">
+									<label class="color-filter color-filter4" for="color-filter4"></label>
+								</li>
 
-				<!--  -->
-				<div class="flex-w flex-sb-m p-b-12">
-					<span class="s-text18 w-size19 w-full-sm">
-						Subtotal: 
-					</span>
+								<li class="m-r-10">
+									<input class="checkbox-color-filter" id="color-filter5" type="checkbox" name="color-filter5">
+									<label class="color-filter color-filter5" for="color-filter5"></label>
+								</li>
 
-					<span class="m-text21 w-size20 w-full-sm">
-					<?php echo "$".$total; ?>
-					</span>
-				</div>
+								<li class="m-r-10">
+									<input class="checkbox-color-filter" id="color-filter6" type="checkbox" name="color-filter6">
+									<label class="color-filter color-filter6" for="color-filter6"></label>
+								</li>
 
-				<!--  -->
-				<div class="flex-w flex-sb bo10 p-t-15 p-b-20">
-					<span class="s-text18 w-size19 w-full-sm">
-						Envío:
-					</span>
+								<li class="m-r-10">
+									<input class="checkbox-color-filter" id="color-filter7" type="checkbox" name="color-filter7">
+									<label class="color-filter color-filter7" for="color-filter7"></label>
+								</li>
+							</ul>
+						</div>
+-->
+						<div class="search-product pos-relative bo4 of-hidden">
+							<!--<input class="s-text7 size6 p-l-23 p-r-50" type="text" name="search-product" placeholder="Buscar Productos...">
 
-					<div class="w-size20 w-full-sm">
-						
+							<button class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4">
+								<i class="fs-12 fa fa-search" aria-hidden="true"></i>
+							</button>-->
+						</div>
 					</div>
 				</div>
 
-				<!--  -->
-				<div class="flex-w flex-sb-m p-t-26 p-b-30">
-					<span class="m-text22 w-size19 w-full-sm">
-						Total: 
-					</span>
+				<div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
+					<!--  -->
+					<div class="flex-sb-m flex-w p-b-35">
+						<div class="flex-w">
+							<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
+								<select class="selection-2" name="sorting">
+									<option>Clasificación por defecto</option>
+									<option>Popularidad</option>
+									<option>Precio: bajo a alto</option>
+									<option>Precio: alto a bajo</option>
+								</select>
+							</div>
 
-					<span class="m-text21 w-size20 w-full-sm">
-					<?php echo "$".$total; ?>
-					</span>
-				</div>
+							<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
+								<select class="selection-2" name="sorting">
+									<option>Precio</option>
+									<option>$0.00 - $50.00</option>
+									<option>$50.00 - $100.00</option>
+									<option>$100.00 - $150.00</option>
+									<option>$150.00 - $200.00</option>
+									<option>$200.00+</option>
 
-				<div class="size15 trans-0-4">
-					<!-- Button -->
-					<?php if($inicio=="si"){?>
-							<a href="pago.php" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-								Proceder a pagar
-							</a>
-							<?php } else if($inicio=="no"){?>
-							<a href="login.php" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-								Proceder a pagar
-							</a>
-					<?php }?>
+								</select>
+							</div>
+						</div>
+
+						<span class="s-text8 p-t-5 p-b-5">
+							Viendo 1–12 de 16 resultados
+						</span>
+					</div>
+
+					<!-- Productos -->
+					<div class="row">
+					<!-- EMPIEZA EL CART-->
+					<?php
+					$i=0;
+					foreach($productos as $lista => $producto){
+						foreach($producto as $tenis)
+						{
+							while(isset($tenis[$i])){ 
+					?>
+						<div class="col-sm-12 col-md-6 col-lg-4 p-b-50">
+							<!-- Block2 -->
+							<div class="block2">
+								<div class="block2-img wrap-pic-w of-hidden pos-relative">
+									<img src="images/sneakers/<?php echo $tenis[$i]->id_producto;?>.jpg" alt="IMG-PRODUCT">
+
+									<div class="block2-overlay trans-0-4">
+										<a href="#" class="block2-btn-addwishlist hov-pointer trans-0-4">
+											<i class="icon-wishlist icon_heart_alt" aria-hidden="true"></i>
+											<i class="icon-wishlist icon_heart dis-none" aria-hidden="true"></i>
+										</a>
+
+										<div class="block2-btn-addcart w-size1 trans-0-4">
+											<!-- Button -->
+											<form action="agregarCarrito.php" method="post">
+													<input type="hidden" name="objetivo" id="objetivo" value="<?php echo $tenis[$i]->id_objetivo=1;?>">
+													<input  type="hidden" name="imagen" id="imagen" value="<?php echo $tenis[$i]->id_producto;?>"> 
+													<input type="hidden" name="nombre" id="nombre" value="<?php echo $tenis[$i]->nombre; ?>">                                                 
+													<input type="hidden" name="precio" id="precio" value="<?php echo $tenis[$i]->precio; ?>">                                                 
+													<button class="flex-c-m size1 bg4 bo-rad-23 hov1 s-text1 trans-0-4" name="add" value="tienda">Agregar al carrito</button>
+											</form>
+										</div>
+									</div>
+								</div>
+
+								<div class="block2-txt p-t-20">
+									<a href="product-detail.php?id=<?php echo $tenis[$i]->nombre;?>" class="block2-name dis-block s-text3 p-b-5">
+									<?php echo $tenis[$i]->nombre;?>
+									</a>
+
+									<span class="block2-price m-text6 p-r-5">
+									<?php echo "$".$tenis[$i]->precio;$i++?>
+									</span>
+								</div>
+							</div>
+						</div>
+					<?php }}} ?>
+                       <!-- TERMINA EL CART -->
+					<!-- Pagination 
 					
+					<div class="pagination flex-m flex-w p-t-26">				
+						<a href="#" class="item-pagination flex-c-m trans-0-4 active-pagination">1</a>
+						<a href="#" class="item-pagination flex-c-m trans-0-4">2</a>
+					</div>-->
 				</div>
 			</div>
 		</div>
 	</section>
-
 
 
 	<!-- Footer -->
@@ -604,7 +694,7 @@ $total=0;
 					<div class="w-size2 p-t-20">
 						<!-- Button -->
 						<button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
-							Subscribete
+							
 						</button>
 					</div>
 
@@ -639,6 +729,9 @@ $total=0;
 		</div>
 	</footer>
 
+
+
+
 	<!-- Back to top -->
 	<div class="btn-back-to-top bg0-hov" id="myBtn">
 		<span class="symbol-btn-back-to-top">
@@ -671,6 +764,55 @@ $total=0;
 			minimumResultsForSearch: 20,
 			dropdownParent: $('#dropDownSelect2')
 		});
+	</script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/daterangepicker/moment.min.js"></script>
+	<script type="text/javascript" src="vendor/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/slick/slick.min.js"></script>
+	<script type="text/javascript" src="js/slick-custom.js"></script>
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/sweetalert/sweetalert.min.js"></script>
+	<script type="text/javascript">
+		$('.block2-btn-addcart').each(function(){
+			var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to cart !", "success");
+			});
+		});
+
+		$('.block2-btn-addwishlist').each(function(){
+			var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
+			$(this).on('click', function(){
+				swal(nameProduct, "is added to wishlist !", "success");
+			});
+		});
+	</script>
+
+<!--===============================================================================================-->
+	<script type="text/javascript" src="vendor/noui/nouislider.min.js"></script>
+	<script type="text/javascript">
+		/*[ No ui ]
+	    ===========================================================*/
+	    var filterBar = document.getElementById('filter-bar');
+
+	    noUiSlider.create(filterBar, {
+	        start: [ 50, 200 ],
+	        connect: true,
+	        range: {
+	            'min': 50,
+	            'max': 200
+	        }
+	    });
+
+	    var skipValues = [
+	    document.getElementById('value-lower'),
+	    document.getElementById('value-upper')
+	    ];
+
+	    filterBar.noUiSlider.on('update', function( values, handle ) {
+	        skipValues[handle].innerHTML = Math.round(values[handle]) ;
+	    });
 	</script>
 <!--===============================================================================================-->
 	<script src="js/main.js"></script>

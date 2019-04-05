@@ -43,11 +43,11 @@
 		<div class="container-menu-header">
 			<div class="topbar">
 				<div class="topbar-social">
-					<a href="#" class="topbar-social-item fa fa-facebook"></a>
-					<a href="#" class="topbar-social-item fa fa-instagram"></a>
-					<a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-					<a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
-					<a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+					<a href="https://www.facebook.com" class="topbar-social-item fa fa-facebook"></a>
+						<a href="https://www.instagram.com" class="topbar-social-item fa fa-instagram"></a>
+						<a href="https://www.pinterest.com" class="topbar-social-item fa fa-pinterest-p"></a>
+						<a href="https://www.snapchat.com" class="topbar-social-item fa fa-snapchat-ghost"></a>
+						<a href="https://www.youtube.com" class="topbar-social-item fa fa-youtube-play"></a>
 				</div>
 
 				<span class="topbar-child1">
@@ -420,25 +420,25 @@
 	
 					<ul>
 						<li class="p-b-9">
-							<a href="#" class="s-text7">
+							<a href="hombres.php" class="s-text7">
 								Hombres
 							</a>
 						</li>
 	
 						<li class="p-b-9">
-							<a href="#" class="s-text7">
+							<a href="mujeres.php" class="s-text7">
 								Mujeres
 							</a>
 						</li>
 	
 						<li class="p-b-9">
-							<a href="#" class="s-text7">
+							<a href="niños.php" class="s-text7">
 								Niños
 							</a>
 						</li>
 	
 						<li class="p-b-9">
-							<a href="#" class="s-text7">
+							<a href="niñas.php" class="s-text7">
 								Niñas
 							</a>
 						</li>
@@ -486,7 +486,7 @@
 	
 						<li class="p-b-9">
 							<a href="#" class="s-text7">
-								Devoluciones
+								
 							</a>
 						</li>
 						

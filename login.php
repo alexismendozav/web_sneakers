@@ -172,9 +172,15 @@ if($inicio=="si")
 
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										Pagar
-									</a>
+									<?php if($inicio=="si"){?>
+										<a href="pago.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+											Comprar
+										</a>
+										<?php } else if($inicio=="no"){?>
+										<a href="login.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+											Comprar
+										</a>
+										<?php }?>
 								</div>
 							</div>
 						</div>
@@ -246,9 +252,15 @@ if($inicio=="si")
 
 								<div class="header-cart-wrapbtn">
 									<!-- Button -->
-									<a href="#" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
-										Pagar
-									</a>
+									<?php if($inicio=="si"){?>
+										<a href="pago.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+											Comprar
+										</a>
+										<?php } else if($inicio=="no"){?>
+										<a href="login.php" class="flex-c-m size1 bg1 bo-rad-20 hov1 s-text1 trans-0-4">
+											Comprar
+										</a>
+										<?php }?>
 								</div>
 							</div>
 						</div>
@@ -296,11 +308,11 @@ if($inicio=="si")
 
 					<li class="item-topbar-mobile p-l-10">
 						<div class="topbar-social-mobile">
-							<a href="#" class="topbar-social-item fa fa-facebook"></a>
-							<a href="#" class="topbar-social-item fa fa-instagram"></a>
-							<a href="#" class="topbar-social-item fa fa-pinterest-p"></a>
-							<a href="#" class="topbar-social-item fa fa-snapchat-ghost"></a>
-							<a href="#" class="topbar-social-item fa fa-youtube-play"></a>
+							<a href="https://www.facebook.com" class="topbar-social-item fa fa-facebook"></a>
+							<a href="https://www.instagram.com" class="topbar-social-item fa fa-instagram"></a>
+							<a href="https://www.pinterest.com" class="topbar-social-item fa fa-pinterest-p"></a>
+							<a href="https://www.snapchat.com" class="topbar-social-item fa fa-snapchat-ghost"></a>
+							<a href="https://www.youtube.com" class="topbar-social-item fa fa-youtube-play"></a>
 						</div>
 					</li>
 
@@ -457,25 +469,25 @@ if($inicio=="si")
 	
 					<ul>
 						<li class="p-b-9">
-							<a href="#" class="s-text7">
+							<a href="hombres.php" class="s-text7">
 								Hombres
 							</a>
 						</li>
 	
 						<li class="p-b-9">
-							<a href="#" class="s-text7">
+							<a href="mujeres.php" class="s-text7">
 								Mujeres
 							</a>
 						</li>
 	
 						<li class="p-b-9">
-							<a href="#" class="s-text7">
+							<a href="niños.php" class="s-text7">
 								Niños
 							</a>
 						</li>
 	
 						<li class="p-b-9">
-							<a href="#" class="s-text7">
+							<a href="niñas.php" class="s-text7">
 								Niñas
 							</a>
 						</li>
@@ -516,14 +528,14 @@ if($inicio=="si")
 	
 					<ul>
 						<li class="p-b-9">
-							<a href="#" class="s-text7">
+							<a href="http://sneakers2.000webhostapp.com/" class="s-text7">
 								Foro
 							</a>
 						</li>
 	
 						<li class="p-b-9">
 							<a href="#" class="s-text7">
-								Devoluciones
+							
 							</a>
 						</li>
 						
@@ -544,7 +556,7 @@ if($inicio=="si")
 						<div class="w-size2 p-t-20">
 							<!-- Button -->
 							<button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
-								Subscribete
+								
 							</button>
 						</div>
 	

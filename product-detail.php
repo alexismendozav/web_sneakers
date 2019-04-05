@@ -665,25 +665,25 @@ foreach($productos as $lista => $producto){
 
 				<ul>
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
+						<a href="hombbres.php" class="s-text7">
 							Hombres
 						</a>
 					</li>
 
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
+						<a href="mujeres.php" class="s-text7">
 							Mujeres
 						</a>
 					</li>
 
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
+						<a href="niños.php" class="s-text7">
 							Niños
 						</a>
 					</li>
 
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
+						<a href="niñas.php" class="s-text7">
 							Niñas
 						</a>
 					</li>
@@ -724,14 +724,14 @@ foreach($productos as $lista => $producto){
 
 				<ul>
 					<li class="p-b-9">
-						<a href="#" class="s-text7">
+						<a href="http://sneakers2.000webhostapp.com/" class="s-text7">
 							Foro
 						</a>
 					</li>
 
 					<li class="p-b-9">
 						<a href="#" class="s-text7">
-							Devoluciones
+							
 						</a>
 					</li>
 					
@@ -752,7 +752,7 @@ foreach($productos as $lista => $producto){
 					<div class="w-size2 p-t-20">
 						<!-- Button -->
 						<button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
-							Subscribete
+							
 						</button>
 					</div>
 
