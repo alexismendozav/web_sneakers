@@ -1,5 +1,12 @@
 <?php 
 include 'agregarCarrito.php';
+include 'verificarSesion.php';
+if($inicio=="si")
+  {
+	?> <script type="text/javascript"> 
+	alert("Usted ya ha iniciado sesión.");
+	window.location.href = "index.php";</script> <?php 
+  }
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -37,6 +44,8 @@ include 'agregarCarrito.php';
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script src="js/login.js"></script>
+		<script src="js/validar.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 <!--===============================================================================================-->
 </head>
 <body class="animsition">
@@ -60,7 +69,12 @@ include 'agregarCarrito.php';
 
 				<div class="topbar-child2">
 					<span class="topbar-email">
-						snicker@gmail.com
+					<?php
+							if($inicio=="si")
+							  echo $usuario;
+							else
+							  echo 'snickers@gmail.com';
+					?>
 					</span>
 
 					<div class="topbar-language rs1-select2">
@@ -262,7 +276,12 @@ include 'agregarCarrito.php';
 					<li class="item-topbar-mobile p-l-20 p-t-8 p-b-8">
 						<div class="topbar-child2-mobile">
 							<span class="topbar-email">
-								snickers@gmial.com
+							<?php
+							if($inicio=="si")
+							  echo $usuario;
+							else
+							  echo 'snickers@gmail.com';
+							?>
 							</span>
 
 							<div class="topbar-language rs1-select2">
@@ -330,12 +349,12 @@ include 'agregarCarrito.php';
 						<div class="row">
 							<div class="col-lg-12">
 							<!--FORM LOGIN-->
-								<form id="login-form" action="acces.php" method="post" role="form" style="display: block;">
+								<form id="login-form" action="prueba.php" method="post" role="form" style="display: block;" onsubmit="return validarLogin(this);">
 									<div class="form-group">
 										<input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="E-mail" value="">
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Contraseña">
+										<input type="password" name="password" id="passw" tabindex="2" class="form-control" placeholder="Contraseña">
 									</div>
 									<div class="form-group text-center">
 										<input type="checkbox" tabindex="3" class="" name="remember" id="remember">
@@ -357,46 +376,47 @@ include 'agregarCarrito.php';
 											</div>
 										</div>
 									</div>
-                                </form>
-                                <!--FORM REGISTER-->
-								<form id="register-form" action="acces.php" method="post" role="form" style="display: none;">
+                  </form>
+                <!--FORM REGISTER-->
+								<form id="register-form" action="acces.php" method="post" role="form" style="display: none;" onsubmit="return validar(this);">
 									<div class="form-group">
-										<input type="text" name="nombre" id="nombre" tabindex="1" class="form-control" placeholder="Nombre" value="">
+										<input type="text"   name="nombre" id="nombre" tabindex="1" class="form-control" placeholder="Nombre" value="">
 									</div>
 									<div class="form-group">
-										<input type="text" name="apellidos" id="apellidos" tabindex="1" class="form-control" placeholder="Apellidos" value="">
+										<input type="text"   name="apellidos" id="apellidos" tabindex="1" class="form-control" placeholder="Apellidos" value="">
 									</div>
 									<div class="form-group">
-										<input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Correo electronico" value="">
+										<input type="text"    name="email" id="email" tabindex="1" class="form-control" placeholder="Correo electronico" value="">
 									</div>
 									<div class="form-group">
-										<input type="text" name="telefono" id="telefono" tabindex="1" class="form-control" placeholder="Telefono" value="">
+										<input type="text"   name="telefono" id="telefono" tabindex="1" class="form-control" placeholder="Telefono" value="">
 									</div>
 									<div class="form-group">
 										<input type="text" name="cp" id="cp" tabindex="1" class="form-control" placeholder="Codigo Postal" value="">
 									</div>
 									<div class="form-group">
-										<input type="text" name="estado" id="estado" tabindex="1" class="form-control" placeholder="Estado" value="">
+										<input type="text"   name="estado" id="estado" tabindex="1" class="form-control" placeholder="Estado" value="">
 									</div>
 									<div class="form-group">
-										<input type="text" name="ciudad" id="ciudad" tabindex="1" class="form-control" placeholder="Ciudad" value="">
+										<input type="text"  name="ciudad" id="ciudad" tabindex="1" class="form-control" placeholder="Ciudad" value="">
 									</div>
 									<div class="form-group">
-										<input type="text" name="colonia" id="colonia" tabindex="1" class="form-control" placeholder="Colonia" value="">
+										<input type="text"   name="colonia" id="colonia" tabindex="1" class="form-control" placeholder="Colonia" value="">
 									</div>
 									<div class="form-group">
-										<input type="text" name="calle" id="calle" tabindex="1" class="form-control" placeholder="Calle" value="">
+										<input type="text"   name="calle" id="calle" tabindex="1" class="form-control" placeholder="Calle" value="">
 									</div>
 									<div class="form-group">
-										<input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Contraseña">
-									</div>
+										<input type="password"   name="password" id="password" tabindex="2" class="form-control" placeholder="Contraseña"> 		
+									</div>				
+						
 									<div class="form-group">
-										<input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirmar contraseña">
+										<input type="password"  name="confirm-password" id="confirm" tabindex="2" class="form-control" placeholder="Confirmar contraseña">
 									</div>
 									<div class="form-group">
 										<div class="row">
 											<div class="col-sm-6 col-sm-offset-3">
-												<input type="submit" name="register-submit" id="register-submit" tabindex="4" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" value="Crear cuenta">
+												<input type="submit"   name="register-submit" id="register-submit" tabindex="4" class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4" value="Crear cuenta">
 											</div>
 										</div>
 									</div>
@@ -594,6 +614,13 @@ include 'agregarCarrito.php';
 			dropdownParent: $('#dropDownSelect2')
 		});
 		
+		$('#password').on("mousedown",function(event) {
+  		$(this).attr("type","text");
+		});
+
+		$('#password').on("mouseup",function(event) {
+  	$('#password').attr("type","password");
+		});
 	</script>
 	
 <!--===============================================================================================-->

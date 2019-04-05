@@ -1,6 +1,12 @@
 <?php 
 include 'agregarCarrito.php';
 include 'verificarSesion.php';
+	if(!isset($_SESSION['CARRITO'])){
+			?> <script type="text/javascript"> 
+                alert("Elija algún producto!");
+                window.location.href = "productos.php";</script> 
+			<?php 
+	}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -346,7 +352,7 @@ include 'verificarSesion.php';
       <div class="modal__content">
         <h2>DETALLES DE PAGO</h2>
 
-        <form action="acces.php" method="post">
+        <form action="prueba.php" method="post">
           <ul class="form-list" >
             <li class="form-list__row">
               <label>Nombre</label>

@@ -1,18 +1,4 @@
 <?php
-
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Acces</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="main.css">
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-</head>
-<body>
-<?php
     include 'agregarCarrito.php';
     $servicio = new SoapClient('http://interfacesavanzadasp.somee.com/Service1.svc?singleWsdl');
    
@@ -85,59 +71,23 @@
         $resultado = $servicio -> VerificarLogin($parametros);
         foreach ($resultado as $obj => $value) {
             if($value==1){              
-                
-                ?>
-                <script>
-                swal({
-                    title: "BIENVENIDO",
-                    text: "PROCEDA A PAGAR SUS PRUDUCTOS",
-                    icon: "success",
-                    buttons: true,
-                    dangerMode: true,
-                    })
-                    .then((willDelete) => {
-                    if (willDelete) {
-                        <?php
-                            if(!isset($_SESSION['USUARIO'])){
+                if(!isset($_SESSION['USUARIO'])){
                                 $usuario = array ('USUARIO' => $correo,);
                                 $_SESSION['USUARIO'][0]=$usuario;
-                            }
-                            ?>
-                        window.location.href = 'pago.php';
-                    } else {
-                        <?php
-                            if(!isset($_SESSION['USUARIO'])){
-                                $usuario = array ('USUARIO' => $correo,);
-                                $_SESSION['USUARIO'][0]=$usuario;
-                            } ?>
-                        window.location.href = 'index.php';
-                    }
-                    });
-                </script>
-                <?php 
-                
-                                 
+                  
+                }
+                if(!isset($_SESSION['CARRITO'])){
+                    ?>  <script type="text/javascript"> window.location.href = "index.php";</script> <?php  
+                }else{
+                    ?>  <script type="text/javascript"> window.location.href = "pago.php";</script> <?php 
+                }
+                                
             }     
             else
              {
-                ?>
-                <script>
-                swal({
-                    title: "Usuario o contraseña incorrectos",
-                    text: "Vuelva a intentarlo",
-                    icon: "error",
-                    buttons: true,
-                    dangerMode: true,
-                    })
-                    .then((willDelete) => {
-                    if (willDelete) {
-                        window.location.href = 'login.php';
-                    } else {
-                        window.location.href = 'index.php';
-                    }
-                    });
-                </script>
-                <?php 
+                ?> <script type="text/javascript"> 
+                alert("Usuario o contraseña incorrectos");
+                window.location.href = "login.php";</script> <?php 
              }
         }
     }else if(isset($_POST['pagar'])){
@@ -184,5 +134,3 @@
     }
   
 ?>
-</body>
-</html>

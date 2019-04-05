@@ -453,37 +453,7 @@ $total=0;
 					</span>
 
 					<div class="w-size20 w-full-sm">
-						<p class="s-text8 p-b-23">
-							Hay que activar los metodos de envío
-						</p>
-
-						<span class="s-text19">
-							Calcular envío
-						</span>
-
-						<div class="rs2-select2 rs3-select2 rs4-select2 bo4 of-hidden w-size21 m-t-8 m-b-12">
-							<select class="selection-2" name="country">
-								<option>Seleccionar pais</option>
-								<option>MXN</option>
-								<option>UK</option>
-								<option>US</option>
-							</select>
-						</div>
-
-						<div class="size13 bo4 m-b-12">
-						<input class="sizefull s-text7 p-l-15 p-r-15" type="text" name="state" placeholder="Pais /  Estado">
-						</div>
-
-						<div class="size13 bo4 m-b-22">
-							<input class="sizefull s-text7 p-l-15 p-r-15" type="text" name="postcode" placeholder="CP">
-						</div>
-
-						<div class="size14 trans-0-4 m-b-10">
-							<!-- Button -->
-							<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-								Actualizar costo
-							</button>
-						</div>
+						
 					</div>
 				</div>
 
