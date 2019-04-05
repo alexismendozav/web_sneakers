@@ -393,13 +393,13 @@ $productos = $servicio -> GetBusqueda($id_objetivo);
 							</li>
 
 							<li class="p-t-4">
-								<a href="niñas.php" class="s-text13">
+								<a href="ninas.php" class="s-text13">
 									Niñas
 								</a>
 							</li>
 
 							<li class="p-t-4">
-								<a href="niños.php" class="s-text13">
+								<a href="ninos.php" class="s-text13">
 									Niños
 								</a>
 							</li>
@@ -619,13 +619,13 @@ $productos = $servicio -> GetBusqueda($id_objetivo);
 					</li>
 
 					<li class="p-b-9">
-						<a href="niños.php" class="s-text7">
+						<a href="ninos.php" class="s-text7">
 							Niños
 						</a>
 					</li>
 
 					<li class="p-b-9">
-						<a href="niñas.php" class="s-text7">
+						<a href="ninas.php" class="s-text7">
 							Niñas
 						</a>
 					</li>

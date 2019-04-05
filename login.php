@@ -481,13 +481,13 @@ if($inicio=="si")
 						</li>
 	
 						<li class="p-b-9">
-							<a href="niños.php" class="s-text7">
+							<a href="ninos.php" class="s-text7">
 								Niños
 							</a>
 						</li>
 	
 						<li class="p-b-9">
-							<a href="niñas.php" class="s-text7">
+							<a href="ninas.php" class="s-text7">
 								Niñas
 							</a>
 						</li>
