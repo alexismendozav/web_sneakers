@@ -391,13 +391,13 @@ $productos = $servicio -> GetProductos();
 							</li>
 
 							<li class="p-t-4">
-								<a href="niñas.php" class="s-text13">
+								<a href="ninas.php" class="s-text13">
 									Niñas
 								</a>
 							</li>
 
 							<li class="p-t-4">
-								<a href="niños.php" class="s-text13">
+								<a href="ninos.php" class="s-text13">
 									Niños
 								</a>
 							</li>
