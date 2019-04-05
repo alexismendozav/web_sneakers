@@ -9,7 +9,8 @@
             $producto = array (
                 'modelo' => $modelo,
                 'nombre' => $nombre,
-                'precio' => $precio,               
+                'precio' => $precio, 
+                'cantidad' => 1,              
              );
              $_SESSION['CARRITO'][0]=$producto;
              if($_POST['add']=="tienda")

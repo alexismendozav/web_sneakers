@@ -364,7 +364,7 @@ $total=0;
 							<th class="column-1"></th>
 							<th class="column-2">Producto</th>
 							<th class="column-3">Precio</th>
-							<th class="column-4 p-l-70">Cantidad</th>
+							<th class="column-4 p-l-70 ">Cantidad</th>
 							<th class="column-5">Total</th>
 							<th class="column-1">Eliminar</th>
 						</tr>
@@ -381,16 +381,16 @@ $total=0;
 							<td class="column-2"><?php echo $producto['nombre'];?></td>
 							<td class="column-3"><?php echo "$".$producto['precio'];?></td>
 							<td class="column-4">
-								<div class="flex-w bo5 of-hidden w-size17">
-									<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
+								<div class="flex-w bo5 of-hidden w-size17 centered">
+									<!--<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
 										<i class="fs-12 fa fa-minus" aria-hidden="true"></i>
-									</button>
+									</button> -->
 
-									<input class="size8 m-text18 t-center num-product" type="number" name="num-product1" value="1">
+									<input disabled class="size8 m-text18 t-center num-product centered"  type="number" name="num-product1" value="1" >
 
-									<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
+									<!--<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
 										<i class="fs-12 fa fa-plus" aria-hidden="true"></i>
-									</button>
+									</button>--> 
 								</div>
 							</td>
 							<td class="column-5"><?php echo "$".$producto['precio'];?></td>
@@ -406,47 +406,30 @@ $total=0;
 					</table>
 				</div>
 			</div>
-
+<!--
 			<div class="flex-w flex-sb-m p-t-25 p-b-25 bo8 p-l-35 p-r-60 p-lr-15-sm">
-				<div class="flex-w flex-m w-full-sm">
-					<div class="size11 bo4 m-r-10">
-						<input class="sizefull s-text7 p-l-22 p-r-22" type="text" name="coupon-code" placeholder="Codigo del cupon">
-					</div>
-
-					<div class="size12 trans-0-4 m-t-10 m-b-10 m-r-10">
-						<!-- Button -->
-						<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-							Aplicar Cupon
-						</button>
-					</div>
-				</div>
-
-				<div class="size10 trans-0-4 m-t-10 m-b-10">
-					<!-- Button -->
-					<button class="flex-c-m sizefull bg1 bo-rad-23 hov1 s-text1 trans-0-4">
-						Actualizar Carrito
-					</button>
-				</div>
+				
+				
 			</div>
 
-			<!-- Total -->
+			 Total -->
 			<div class="bo9 w-size18 p-l-40 p-r-40 p-t-30 p-b-38 m-t-30 m-r-0 m-l-auto p-lr-15-sm">
-				<h5 class="m-text20 p-b-24">
-					Total: 
-				</h5>
+				<!-- <h5 class="m-text20 p-b-24">
+					Total: <?php // echo "$".$total; ?>
+				</h5> 
 
-				<!--  -->
+				 
 				<div class="flex-w flex-sb-m p-b-12">
 					<span class="s-text18 w-size19 w-full-sm">
 						Subtotal: 
 					</span>
 
 					<span class="m-text21 w-size20 w-full-sm">
-					<?php echo "$".$total; ?>
+					<?//php echo "$".$total; ?>
 					</span>
 				</div>
 
-				<!--  -->
+				 --> <!--
 				<div class="flex-w flex-sb bo10 p-t-15 p-b-20">
 					<span class="s-text18 w-size19 w-full-sm">
 						Envío:
@@ -457,7 +440,7 @@ $total=0;
 					</div>
 				</div>
 
-				<!--  -->
+				 -->
 				<div class="flex-w flex-sb-m p-t-26 p-b-30">
 					<span class="m-text22 w-size19 w-full-sm">
 						Total: 

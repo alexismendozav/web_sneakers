@@ -356,7 +356,7 @@ include 'verificarSesion.php';
 			<div class="row">
 				<div class="col-md-4 p-b-30">
 					<div class="hov-img-zoom">
-						<img src="images/us.png" alt="IMG-ABOUT">
+						<img src="images/us.PNG" alt="IMG-ABOUT">
 					</div>
 				</div>
 

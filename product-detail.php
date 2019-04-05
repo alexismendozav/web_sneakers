@@ -464,15 +464,15 @@ foreach($productos as $lista => $producto){
 					<div class="flex-r-m flex-w p-t-10">
 						<div class="w-size16 flex-m flex-w">
 							<div class="flex-w bo5 of-hidden m-r-22 m-t-10 m-b-10">
-								<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
+								<!--<button class="btn-num-product-down color1 flex-c-m size7 bg8 eff2">
 									<i class="fs-12 fa fa-minus" aria-hidden="true"></i>
-								</button>
+								</button> -->
 
-								<input class="size8 m-text18 t-center num-product" type="number" name="num-product" value="1">
+								<input disabled class="size8 m-text18 t-center num-product" type="number" name="num-product" value="1">
 
-								<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
+							<!--	<button class="btn-num-product-up color1 flex-c-m size7 bg8 eff2">
 									<i class="fs-12 fa fa-plus" aria-hidden="true"></i>
-								</button>
+								</button> -->
 							</div>
 
 							<div class="btn-addcart-product-detail size9 trans-0-4 m-t-10 m-b-10">
@@ -830,7 +830,7 @@ foreach($productos as $lista => $producto){
 		$('.block2-btn-addcart').each(function(){
 			var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
 			$(this).on('click', function(){
-				swal(nameProduct, "is added to cart !", "success");
+				swal(nameProduct, "El producto a sido agregado al carrito !", "success");
 			});
 		});
 
