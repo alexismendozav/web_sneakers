@@ -750,10 +750,10 @@ foreach($productos as $lista => $producto){
 					</div>
 
 					<div class="w-size2 p-t-20">
-						<!-- Button -->
+						<!-- Button 
 						<button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
 							
-						</button>
+						</button>-->
 					</div>
 
 				</form>

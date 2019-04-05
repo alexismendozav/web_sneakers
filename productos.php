@@ -688,9 +688,9 @@ $productos = $servicio -> GetProductos();
 					</div>
 
 					<div class="w-size2 p-t-20">
-						<!-- Button -->
+						 
 						<button class="flex-c-m size2 bg4 bo-rad-23 hov1 m-text3 trans-0-4">
-							
+							Suscribete
 						</button>
 					</div>
 
@@ -773,7 +773,7 @@ $productos = $servicio -> GetProductos();
 		$('.block2-btn-addcart').each(function(){
 			var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
 			$(this).on('click', function(){
-				swal(nameProduct, "is added to cart !", "success");
+				swal(nameProduct, "El producto se ha agregado al carrito !", "success");
 			});
 		});
 
