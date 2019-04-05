@@ -426,13 +426,7 @@ include 'agregarCarrito.php';
 						¿Alguna pregunta? Avísenos en la tienda, 5 Oriente #535, Tehuacan, Puebla  o llámenos al (+52) 2382114426
 						</p>
 	
-					<div class="topbar-social">
-					<a href="https://www.facebook.com" class="topbar-social-item fa fa-facebook"></a>
-					<a href="https://www.instagram.com" class="topbar-social-item fa fa-instagram"></a>
-					<a href="https://www.pinterest.com" class="topbar-social-item fa fa-pinterest-p"></a>
-					<a href="https://www.snapchat.com" class="topbar-social-item fa fa-snapchat-ghost"></a>
-					<a href="https://www.youtube.com" class="topbar-social-item fa fa-youtube-play"></a>
-				</div>
+				
 					</div>
 				</div>
 	
