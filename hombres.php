@@ -410,29 +410,8 @@ $productos = $servicio -> GetBusqueda($id_objetivo);
 							
 						</h4>
 
-						<div class="filter-price p-t-22 p-b-50 bo3">
-							<div class="m-text15 p-b-17">
-								
-							</div>
-
-							<div class="wra-filter-bar">
-								<!--<div id="filter-bar"></div>-->
-							</div>
-
-							<div class="flex-sb-m flex-w p-t-16">
-								<div class="w-size11">
-									<!-- Button 
-									<button class="flex-c-m size4 bg7 bo-rad-15 hov1 s-text14 trans-0-4">
-										Filtros
-									</button>-->
-								</div>
-
-								<div class="s-text3 p-t-10 p-b-10">
-									<!--Rango: $<span id="value-lower">0</span> - $<span id="value-upper">5000</span>-->
-								</div>
-							</div>
-						</div>
-<!--
+						
+							<!--
 						<div class="filter-color p-t-22 p-b-50 bo3">
 							<div class="m-text15 p-b-12">
 								Color
@@ -476,18 +455,12 @@ $productos = $servicio -> GetBusqueda($id_objetivo);
 							</ul>
 						</div>
 -->
-						<div class="search-product pos-relative bo4 of-hidden">
-							<!--<input class="s-text7 size6 p-l-23 p-r-50" type="text" name="search-product" placeholder="Buscar Productos...">
-
-							<button class="flex-c-m size5 ab-r-m color2 color0-hov trans-0-4">
-								<i class="fs-12 fa fa-search" aria-hidden="true"></i>
-							</button>-->
-						</div>
+						
 					</div>
 				</div>
 
 				<div class="col-sm-6 col-md-8 col-lg-9 p-b-50">
-					<!--  -->
+					<!--  
 					<div class="flex-sb-m flex-w p-b-35">
 						<div class="flex-w">
 							<div class="rs2-select2 bo4 of-hidden w-size12 m-t-5 m-b-5 m-r-10">
@@ -515,7 +488,7 @@ $productos = $servicio -> GetBusqueda($id_objetivo);
 						<span class="s-text8 p-t-5 p-b-5">
 							Viendo 1–12 de 16 resultados
 						</span>
-					</div>
+					</div>-->
 
 					<!-- Productos -->
 					<div class="row">
