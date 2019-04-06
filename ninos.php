@@ -450,7 +450,7 @@ $productos = $servicio -> GetBusqueda($id_objetivo);
 								</li>
 							</ul>
 						</div>
---><!--
+						--><!--
 						<div class="search-product pos-relative bo4 of-hidden">
 							<input class="s-text7 size6 p-l-23 p-r-50" type="text" name="search-product" placeholder="Buscar Productos...">
 
@@ -725,14 +725,14 @@ $productos = $servicio -> GetBusqueda($id_objetivo);
 		$('.block2-btn-addcart').each(function(){
 			var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
 			$(this).on('click', function(){
-				swal(nameProduct, "is added to cart !", "success");
+				swal(nameProduct, "El producto ha sido agregado al carrito !", "success");
 			});
 		});
 
 		$('.block2-btn-addwishlist').each(function(){
 			var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
 			$(this).on('click', function(){
-				swal(nameProduct, "is added to wishlist !", "success");
+				swal(nameProduct, "El prodcuto ha sido agregado a sus favoritos !", "success");
 			});
 		});
 	</script>

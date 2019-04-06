@@ -2197,7 +2197,7 @@ $productos = $servicio -> GetProductos();
 		$('.block2-btn-addwishlist').each(function(){
 			var nameProduct = $(this).parent().parent().parent().find('.block2-name').html();
 			$(this).on('click', function(){
-				swal(nameProduct, "Se ha añadido a favoritoa !", "success");
+				swal(nameProduct, "El producto se ha añadido a favoritos !", "success");
 			});
 		});
 	</script>
